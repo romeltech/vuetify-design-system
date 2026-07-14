@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f2f2f0}a{color:#009449;text-decoration:none}a:hover{color:#00753a;text-decoration:underline}</style>
+</helmet>
+<div style="font-family:Roboto,Helvetica,Arial,sans-serif;color:#0d0d0d;min-height:100vh;padding:0 0 80px">
+
+<header data-screen-label="Header" style="background:#000000;color:#ffffff;padding:56px 48px 44px;margin:0 0 20px">
+  <div style="max-width:1280px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:14px;margin:0 0 18px">
+      <div style="width:36px;height:36px;background:#00cc61;border-radius:8px"></div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:2px;color:#8fe9bd">DESIGN SYSTEM REFERENCE</div>
+    </div>
+    <h1 style="font-size:44px;font-weight:500;margin:0 0 10px;letter-spacing:-.5px">Vuetify 4 Design System</h1>
+    <p style="font-size:16px;line-height:1.6;color:#c9c9c9;max-width:760px;margin:0 0 20px">Single source of truth for Vue&nbsp;3 + Vuetify&nbsp;4 projects. Brand: pure black primary, green <span style="color:#00cc61;font-family:'Roboto Mono',monospace;font-size:14px">#00cc61</span> as the interactive accent. Every specimen is captioned with the exact Vuetify props that reproduce it.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span style="font-family:'Roboto Mono',monospace;font-size:11.5px;border:1px solid #2b2b2b;border-radius:999px;padding:5px 12px;color:#e7e7e7">vuetify ^4.1</span>
+      <span style="font-family:'Roboto Mono',monospace;font-size:11.5px;border:1px solid #2b2b2b;border-radius:999px;padding:5px 12px;color:#e7e7e7">Material Design 3</span>
+      <span style="font-family:'Roboto Mono',monospace;font-size:11.5px;border:1px solid #2b2b2b;border-radius:999px;padding:5px 12px;color:#e7e7e7">Roboto</span>
+      <span style="font-family:'Roboto Mono',monospace;font-size:11.5px;border:1px solid #2b2b2b;border-radius:999px;padding:5px 12px;color:#e7e7e7">WCAG AA</span>
+    </div>
+  </div>
+</header>
+
+<nav data-screen-label="Contents" style="max-width:1280px;margin:0 auto 36px;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap">
+  <a href="#colors" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">1 · Color</a>
+  <a href="#typography" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">2 · Typography</a>
+  <a href="#layout" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">3 · Spacing · Elevation · Shape · Breakpoints</a>
+  <a href="#buttons" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">4 · Buttons</a>
+  <a href="#forms" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">5 · Form inputs</a>
+  <a href="#selection" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">6 · Selection controls</a>
+  <a href="#surfaces" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">7 · Cards · Chips · Alerts</a>
+  <a href="#navigation" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">8 · Navigation</a>
+  <a href="#data" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">9 · Data table</a>
+  <a href="#overlays" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">10 · Overlays</a>
+  <a href="#feedback" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">11 · Progress</a>
+  <a href="#themes" style="font-size:13px;font-weight:500;background:#ffffff;border:1px solid #dddddc;border-radius:999px;padding:7px 14px;color:#0d0d0d">12 · Light vs Dark</a>
+  <a href="#handoff" style="font-size:13px;font-weight:500;background:#00cc61;border:1px solid #00cc61;border-radius:999px;padding:7px 14px;color:#002812">13 · Handoff config</a>
+</nav>
+
+<section id="colors" data-screen-label="01 Color" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">01 · FOUNDATIONS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Color tokens</h2>
+  <p style="font-size:14px;line-height:1.6;color:#4a4a4a;max-width:820px;margin:0 0 32px">Tonal ramps 50–900. In a Vuetify theme, register ramp steps as custom color keys (e.g. <span style="font-family:'Roboto Mono',monospace;font-size:12.5px;background:#f6f6f6;padding:1px 5px;border-radius:4px">'primary-300'</span>) — Vuetify then generates <span style="font-family:'Roboto Mono',monospace;font-size:12.5px;background:#f6f6f6;padding:1px 5px;border-radius:4px">bg-primary-300</span>, <span style="font-family:'Roboto Mono',monospace;font-size:12.5px;background:#f6f6f6;padding:1px 5px;border-radius:4px">text-primary-300</span> classes and <span style="font-family:'Roboto Mono',monospace;font-size:12.5px;background:#f6f6f6;padding:1px 5px;border-radius:4px">--v-theme-primary-300</span> variables automatically.</p>
+
+  <sc-for list="{{ ramps }}" as="r" hint-placeholder-count="2">
+    <div style="margin:0 0 30px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:0 0 10px;flex-wrap:wrap">
+        <div style="font-size:16px;font-weight:500">{{ r.name }}</div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:#6f6f6f">{{ r.note }}</div>
+      </div>
+      <div style="display:flex;gap:5px">
+        <sc-for list="{{ r.steps }}" as="c" hint-placeholder-count="10">
+          <div style="flex:1;min-width:0">
+            <div style="height:58px;border-radius:7px;background:{{ c.hex }};border:1px solid rgba(0,0,0,.07)"></div>
+            <div style="font-size:11.5px;font-weight:700;margin:7px 0 1px">{{ c.s }}</div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#4a4a4a">{{ c.hex }}</div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;color:#a3a3a3">{{ c.key }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+
+  <h3 style="font-size:18px;font-weight:500;margin:8px 0 4px">Semantic colors</h3>
+  <p style="font-size:13.5px;line-height:1.6;color:#4a4a4a;margin:0 0 16px">Suggested bases failing WCAG AA with white text were darkened for the light theme; the brighter originals move to the dark theme, where all four take near-black <span style="font-family:'Roboto Mono',monospace;font-size:12px">on-*</span> text (<span style="font-family:'Roboto Mono',monospace;font-size:12px">#0d0d0d</span>).</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 32px">
+    <sc-for list="{{ semantic }}" as="c" hint-placeholder-count="4">
+      <div style="border:1px solid #e4e4e2;border-radius:10px;overflow:hidden">
+        <div style="background:{{ c.light }};color:{{ c.onLight }};padding:14px 14px 12px">
+          <div style="font-size:15px;font-weight:500">{{ c.name }}</div>
+          <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;opacity:.85;margin:2px 0 0">light · {{ c.light }} · {{ c.ratioLight }}</div>
+        </div>
+        <div style="background:{{ c.dark }};color:#0d0d0d;padding:12px 14px">
+          <div style="font-family:'Roboto Mono',monospace;font-size:10.5px">dark · {{ c.dark }} · {{ c.ratioDark }}</div>
+        </div>
+        <div style="padding:10px 14px;font-size:11.5px;line-height:1.5;color:#6f6f6f;background:#ffffff">{{ c.note }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <h3 style="font-size:18px;font-weight:500;margin:0 0 4px">Theme roles — exact <span style="font-family:'Roboto Mono',monospace;font-size:16px">colors</span> keys</h3>
+  <p style="font-size:13.5px;line-height:1.6;color:#4a4a4a;margin:0 0 14px">Column values drop straight into <span style="font-family:'Roboto Mono',monospace;font-size:12px">theme.themes.light.colors</span> / <span style="font-family:'Roboto Mono',monospace;font-size:12px">.dark.colors</span> (full config in <a href="#handoff">§13</a>). Dark mode layers near-black surfaces instead of pure black; <span style="font-family:'Roboto Mono',monospace;font-size:12px">primary</span> inverts to white so the brand stays legible, and green remains the interactive accent in both themes.</p>
+  <div style="border:1px solid #e4e4e2;border-radius:10px;overflow:hidden">
+    <div style="display:grid;grid-template-columns:220px 1fr 1fr 1.3fr;gap:0;background:#0d0d0d;color:#ffffff;font-size:12px;font-weight:500">
+      <div style="padding:10px 16px">Token</div><div style="padding:10px 16px">Light</div><div style="padding:10px 16px">Dark</div><div style="padding:10px 16px">Role</div>
+    </div>
+    <sc-for list="{{ roles }}" as="t" hint-placeholder-count="14">
+      <div style="display:grid;grid-template-columns:220px 1fr 1fr 1.3fr;align-items:center;border-top:1px solid #efefee">
+        <div style="padding:9px 16px;font-family:'Roboto Mono',monospace;font-size:12px">{{ t.key }}</div>
+        <div style="padding:9px 16px;display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:5px;background:{{ t.light }};border:1px solid rgba(0,0,0,.15);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-size:11.5px;color:#4a4a4a">{{ t.light }}</span></div>
+        <div style="padding:9px 16px;display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:5px;background:{{ t.dark }};border:1px solid rgba(0,0,0,.15);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-size:11.5px;color:#4a4a4a">{{ t.dark }}</span></div>
+        <div style="padding:9px 16px;font-size:12px;color:#6f6f6f;line-height:1.45">{{ t.role }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="typography" data-screen-label="02 Typography" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">02 · FOUNDATIONS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Typography</h2>
+  <p style="font-size:14px;line-height:1.6;color:#4a4a4a;max-width:860px;margin:0 0 8px">Default font: <b>Roboto</b> (400 / 500 / 700). Vuetify&nbsp;4 ships the Material Design&nbsp;3 type scale — class names changed from the v3 set. The legacy column shows the closest v3 class for migration; v3 classes can be restored via the <span style="font-family:'Roboto Mono',monospace;font-size:12.5px;background:#f6f6f6;padding:1px 5px;border-radius:4px">$typography</span> SASS map if needed.</p>
+  <p style="font-size:12.5px;line-height:1.6;color:#a3a3a3;margin:0 0 20px">⚠ v4: no class applies <span style="font-family:'Roboto Mono',monospace;font-size:11.5px">text-transform</span> — buttons are no longer auto-uppercase; <span style="font-family:'Roboto Mono',monospace;font-size:11.5px">text-label-small</span> replaces overline but without uppercase/wide tracking.</p>
+  <div style="border:1px solid #e4e4e2;border-radius:10px;overflow:hidden">
+    <div style="display:grid;grid-template-columns:200px 150px 210px 1fr;background:#0d0d0d;color:#ffffff;font-size:12px;font-weight:500">
+      <div style="padding:10px 16px">v4 class</div><div style="padding:10px 16px">v3 legacy</div><div style="padding:10px 16px">Spec</div><div style="padding:10px 16px">Sample</div>
+    </div>
+    <sc-for list="{{ typeScale }}" as="t" hint-placeholder-count="15">
+      <div style="display:grid;grid-template-columns:200px 150px 210px 1fr;align-items:center;border-top:1px solid #efefee">
+        <div style="padding:10px 16px;font-family:'Roboto Mono',monospace;font-size:11.5px;color:#009449">.{{ t.cls }}</div>
+        <div style="padding:10px 16px;font-family:'Roboto Mono',monospace;font-size:11px;color:#a3a3a3">{{ t.legacy }}</div>
+        <div style="padding:10px 16px;font-family:'Roboto Mono',monospace;font-size:11px;color:#4a4a4a;line-height:1.5">{{ t.spec }}</div>
+        <div style="padding:8px 16px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis"><span style="font-family:Roboto,sans-serif;font-size:{{ t.size }};font-weight:{{ t.w }};line-height:{{ t.lh }};letter-spacing:{{ t.ls }}">{{ t.sample }}</span></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="layout" data-screen-label="03 Layout tokens" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">03 · FOUNDATIONS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 24px">Spacing · Elevation · Shape · Breakpoints</h2>
+
+  <h3 style="font-size:18px;font-weight:500;margin:0 0 4px">Spacing — 4px base</h3>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 14px">Utilities: <span style="font-family:'Roboto Mono',monospace;font-size:12px">ma-*</span> / <span style="font-family:'Roboto Mono',monospace;font-size:12px">pa-*</span> (+ directional <span style="font-family:'Roboto Mono',monospace;font-size:12px">mt- mb- ms- me- mx- my-</span>), gap via <span style="font-family:'Roboto Mono',monospace;font-size:12px">ga-*</span>, negative margins <span style="font-family:'Roboto Mono',monospace;font-size:12px">ma-n1…n16</span>, plus <span style="font-family:'Roboto Mono',monospace;font-size:12px">ma-auto</span>. Value = n × 4px.</p>
+  <div style="display:flex;align-items:flex-end;gap:6px;margin:0 0 36px;flex-wrap:wrap">
+    <sc-for list="{{ spacing }}" as="s" hint-placeholder-count="17">
+      <div style="text-align:center">
+        <div style="width:34px;background:#00cc61;border:1px solid #00b356;border-radius:4px 4px 0 0;margin:0 auto;height:{{ s.px }}px"></div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#0d0d0d;margin:5px 0 0;font-weight:500">{{ s.n }}</div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:10px;color:#a3a3a3">{{ s.px }}px</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <h3 style="font-size:18px;font-weight:500;margin:0 0 4px">Elevation — MD3, levels 0–5</h3>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 16px">⚠ Vuetify&nbsp;4 replaced the 25-level MD2 scale (0–24) with 6 MD3 levels. <span style="font-family:'Roboto Mono',monospace;font-size:12px">elevation-0…5</span> classes / <span style="font-family:'Roboto Mono',monospace;font-size:12px">:elevation</span> prop. Legacy MD2 shadows can be restored via a documented config snippet if migrating.</p>
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin:0 0 36px;background:#f6f6f6;border-radius:10px;padding:26px 22px">
+    <sc-for list="{{ elevations }}" as="e" hint-placeholder-count="6">
+      <div style="background:#ffffff;border-radius:10px;height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;box-shadow:{{ e.shadow }}">
+        <div style="font-size:16px;font-weight:500">{{ e.n }}</div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:10px;color:#a3a3a3">elevation-{{ e.n }} · {{ e.dp }}dp</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <h3 style="font-size:18px;font-weight:500;margin:0 0 4px">Border radius</h3>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 16px"><span style="font-family:'Roboto Mono',monospace;font-size:12px">rounded</span> prop / classes. Root token <span style="font-family:'Roboto Mono',monospace;font-size:12px">$border-radius-root: 4px</span>. Values below are framework defaults — to adopt the full MD3 shape scale (4/8/12/16/28) override the <span style="font-family:'Roboto Mono',monospace;font-size:12px">$rounded</span> SASS map (see <a href="#handoff">§13</a>).</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin:0 0 36px">
+    <sc-for list="{{ radii }}" as="r" hint-placeholder-count="7">
+      <div style="text-align:center">
+        <div style="width:96px;height:64px;background:#e7fbf1;border:2px solid #00b356;border-radius:{{ r.css }}"></div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:11px;margin:7px 0 0;font-weight:500">{{ r.cls }}</div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:10px;color:#a3a3a3">{{ r.v }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <h3 style="font-size:18px;font-weight:500;margin:0 0 4px">Breakpoints — v4 thresholds</h3>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 14px">⚠ Changed from v3 (md was 960, xl was 1920). Available via <span style="font-family:'Roboto Mono',monospace;font-size:12px">useDisplay()</span> and grid props <span style="font-family:'Roboto Mono',monospace;font-size:12px">cols / sm / md / lg / xl / xxl</span>. v3 values can be restored via <span style="font-family:'Roboto Mono',monospace;font-size:12px">display.thresholds</span>.</p>
+  <div style="border:1px solid #e4e4e2;border-radius:10px;overflow:hidden;max-width:720px">
+    <div style="display:grid;grid-template-columns:90px 1fr 1fr;background:#0d0d0d;color:#ffffff;font-size:12px;font-weight:500">
+      <div style="padding:9px 16px">Name</div><div style="padding:9px 16px">Range</div><div style="padding:9px 16px">Typical device</div>
+    </div>
+    <sc-for list="{{ breakpoints }}" as="b" hint-placeholder-count="6">
+      <div style="display:grid;grid-template-columns:90px 1fr 1fr;border-top:1px solid #efefee;align-items:center">
+        <div style="padding:8px 16px;font-family:'Roboto Mono',monospace;font-size:12px;color:#009449;font-weight:500">{{ b.name }}</div>
+        <div style="padding:8px 16px;font-family:'Roboto Mono',monospace;font-size:11.5px;color:#4a4a4a">{{ b.range }}</div>
+        <div style="padding:8px 16px;font-size:12px;color:#6f6f6f">{{ b.device }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="buttons" data-screen-label="04 Buttons" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">04 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Buttons — v-btn · v-fab</h2>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 28px">Default in this system: <span style="font-family:'Roboto Mono',monospace;font-size:12px">variant="flat" color="primary"</span> (set globally in <a href="#handoff">defaults</a>). v4 buttons are lowercase by default. Height 36px (default size), radius 4px.</p>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">Variants · color="primary"</h3>
+  <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;margin:0 0 26px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif;box-shadow:0 1px 2px rgba(0,0,0,.3),0 1px 3px 1px rgba(0,0,0,.15)">Elevated</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="elevated"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif">Flat</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="flat"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:rgba(0,0,0,.12);color:#0d0d0d;font:500 14px/1 Roboto,sans-serif">Tonal</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="tonal"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;border:1px solid #0d0d0d;color:#0d0d0d;font:500 14px/1 Roboto,sans-serif">Outlined</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="outlined"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;color:#0d0d0d;font:500 14px/1 Roboto,sans-serif">Text</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="text"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;color:#0d0d0d;opacity:.62;font:500 14px/1 Roboto,sans-serif">Plain</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="plain"</span></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">Variants · color="secondary"</h3>
+  <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;margin:0 0 26px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#00cc61;color:#002812;font:500 14px/1 Roboto,sans-serif;box-shadow:0 1px 2px rgba(0,0,0,.3),0 1px 3px 1px rgba(0,0,0,.15)">Elevated</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="elevated"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#00cc61;color:#002812;font:500 14px/1 Roboto,sans-serif">Flat</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="flat"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:rgba(0,204,97,.16);color:#00753a;font:500 14px/1 Roboto,sans-serif">Tonal</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="tonal"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;border:1px solid #009449;color:#00753a;font:500 14px/1 Roboto,sans-serif">Outlined</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="outlined"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;color:#00753a;font:500 14px/1 Roboto,sans-serif">Text</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="text"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;color:#00753a;opacity:.62;font:500 14px/1 Roboto,sans-serif">Plain</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="plain"</span></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">Sizes</h3>
+  <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-end;margin:0 0 26px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:4px;background:#000000;color:#ffffff;font:500 10px/1 Roboto,sans-serif">x-small</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="x-small" · 20px</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:4px;background:#000000;color:#ffffff;font:500 12px/1 Roboto,sans-serif">small</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="small" · 28px</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif">default</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">(default) · 36px</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:4px;background:#000000;color:#ffffff;font:500 16px/1 Roboto,sans-serif">large</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="large" · 44px</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:52px;padding:0 24px;border-radius:4px;background:#000000;color:#ffffff;font:500 18px/1 Roboto,sans-serif">x-large</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="x-large" · 52px</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>New item</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">prepend-icon="mdi-plus"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.08);color:#0d0d0d"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">icon="mdi-menu"</span></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">States</h3>
+  <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;margin:0 0 26px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif">Enabled</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">default</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#2b2b2b;color:#ffffff;font:500 14px/1 Roboto,sans-serif">Hover</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">:hover · 8% overlay</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif;outline:2px solid #00cc61;outline-offset:2px">Focus</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">:focus-visible</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 16px;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,.3)" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 9 9" stroke="#00cc61" stroke-width="2.5" stroke-linecap="round"/></svg>Saving</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">:loading="true"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:4px;background:rgba(0,0,0,.12);color:rgba(0,0,0,.38);font:500 14px/1 Roboto,sans-serif">Disabled</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">:disabled="true"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;min-width:260px"><span style="display:flex;align-items:center;justify-content:center;height:36px;width:100%;border-radius:4px;background:#000000;color:#ffffff;font:500 14px/1 Roboto,sans-serif">Block button</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">:block="true"</span></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">FAB — v-fab</h3>
+  <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#00cc61;color:#002812;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">color="secondary" icon="mdi-plus"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:#00cc61;color:#002812;box-shadow:0 1px 2px rgba(0,0,0,.3),0 2px 6px 2px rgba(0,0,0,.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="small"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 20px;border-radius:16px;background:#00cc61;color:#002812;font:500 14px/1 Roboto,sans-serif;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Compose</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">extended prepend-icon</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#000000;color:#ffffff;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20l3.5-.8L19 7.7a2 2 0 0 0-2.8-2.8L4.7 16.4 4 20z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">color="primary" icon="mdi-pencil"</span></div>
+  </div>
+</section>
+
+<section id="forms" data-screen-label="05 Form inputs" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">05 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Form inputs</h2>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 28px">System default: <span style="font-family:'Roboto Mono',monospace;font-size:12px">variant="outlined" color="secondary" density="comfortable"</span>. Focus ring and floating label take the secondary green; error state uses <span style="font-family:'Roboto Mono',monospace;font-size:12px">error</span> red. Field height 56px at default density.</p>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-text-field · the 5 variants</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;margin:0 0 30px">
+    <div><div style="position:relative;background:#f0f0ee;border-radius:4px 4px 0 0;border-bottom:1px solid rgba(0,0,0,.42);height:56px;padding:8px 16px 0;box-sizing:border-box"><div style="font-size:12px;color:#4a4a4a">Full name</div><div style="font-size:16px;color:#0d0d0d;margin-top:2px">Ada Okafor</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="filled"</div></div>
+    <div><div style="position:relative;border:1px solid #a3a3a3;border-radius:4px;height:56px;padding:0 16px;box-sizing:border-box;display:flex;align-items:center"><div style="position:absolute;top:-8px;left:12px;background:#ffffff;padding:0 4px;font-size:12px;color:#4a4a4a">Full name</div><div style="font-size:16px;color:#0d0d0d">Ada Okafor</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="outlined" ← default</div></div>
+    <div><div style="background:#ffffff;border-radius:4px;height:56px;padding:0 16px;box-sizing:border-box;display:flex;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,.3),0 2px 6px 2px rgba(0,0,0,.15)"><div style="font-size:16px;color:#6f6f6f">Search projects…</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="solo"</div></div>
+    <div><div style="border-bottom:1px solid rgba(0,0,0,.42);height:56px;padding:8px 0 0;box-sizing:border-box"><div style="font-size:12px;color:#4a4a4a">Full name</div><div style="font-size:16px;color:#0d0d0d;margin-top:2px">Ada Okafor</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="underlined"</div></div>
+    <div><div style="height:56px;padding:8px 0 0;box-sizing:border-box"><div style="font-size:12px;color:#4a4a4a">Full name</div><div style="font-size:16px;color:#0d0d0d;margin-top:2px">Ada Okafor</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="plain"</div></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">States · on outlined</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;margin:0 0 30px">
+    <div><div style="position:relative;border:2px solid #00b356;border-radius:4px;height:56px;padding:0 15px;box-sizing:border-box;display:flex;align-items:center"><div style="position:absolute;top:-9px;left:11px;background:#ffffff;padding:0 4px;font-size:12px;color:#00b356;font-weight:500">Email</div><div style="font-size:16px;color:#0d0d0d">ada@acme.co<span style="display:inline-block;width:1.5px;height:18px;background:#00b356;vertical-align:-3px;margin-left:1px"></span></div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">focused · 2px secondary border</div></div>
+    <div><div style="position:relative;border:2px solid #d92d31;border-radius:4px;height:56px;padding:0 15px;box-sizing:border-box;display:flex;align-items:center"><div style="position:absolute;top:-9px;left:11px;background:#ffffff;padding:0 4px;font-size:12px;color:#d92d31;font-weight:500">Email</div><div style="font-size:16px;color:#0d0d0d">ada@acme</div></div><div style="font-size:12px;color:#d92d31;margin:6px 0 0 16px">Enter a valid email address.</div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:6px">:error-messages="[…]"</div></div>
+    <div><div style="position:relative;border:1px solid rgba(0,0,0,.26);border-radius:4px;height:56px;padding:0 16px;box-sizing:border-box;display:flex;align-items:center;opacity:.55"><div style="position:absolute;top:-8px;left:12px;background:#ffffff;padding:0 4px;font-size:12px;color:#4a4a4a">Email</div><div style="font-size:16px;color:#0d0d0d">ada@acme.co</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">:disabled="true"</div></div>
+    <div><div style="position:relative;border:1px solid #a3a3a3;border-radius:4px;height:56px;padding:0 16px;box-sizing:border-box;display:flex;align-items:center"><div style="position:absolute;top:-8px;left:12px;background:#ffffff;padding:0 4px;font-size:12px;color:#4a4a4a">Username</div><div style="font-size:16px;color:#0d0d0d">ada_o</div></div><div style="display:flex;justify-content:space-between;margin:6px 16px 0"><span style="font-size:12px;color:#6f6f6f">Lowercase, no spaces</span><span style="font-size:12px;color:#6f6f6f">5 / 20</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:6px">hint="…" counter="20" persistent-hint</div></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-textarea · v-select · v-autocomplete · v-combobox · v-file-input</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;align-items:start">
+    <div><div style="position:relative;border:1px solid #a3a3a3;border-radius:4px;height:112px;padding:12px 16px;box-sizing:border-box"><div style="position:absolute;top:-8px;left:12px;background:#ffffff;padding:0 4px;font-size:12px;color:#4a4a4a">Description</div><div style="font-size:15px;line-height:1.5;color:#0d0d0d">Quarterly rollout notes for the EU region…</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">v-textarea variant="outlined" rows="3"</div></div>
+    <div><div style="position:relative;border:1px solid #a3a3a3;border-radius:4px;height:56px;padding:0 16px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between"><div style="position:absolute;top:-8px;left:12px;background:#ffffff;padding:0 4px;font-size:12px;color:#4a4a4a">Region</div><div style="font-size:16px;color:#0d0d0d">Europe (EU-West)</div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">v-select :items="regions"</div></div>
+    <div><div style="position:relative;border:2px solid #00b356;border-radius:4px;height:56px;padding:0 15px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between"><div style="position:absolute;top:-9px;left:11px;background:#ffffff;padding:0 4px;font-size:12px;color:#00b356;font-weight:500">Assignee</div><div style="font-size:16px;color:#0d0d0d">mar</div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 14l5-5 5 5" stroke="#00b356" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div style="background:#ffffff;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);margin-top:4px;padding:8px 0">
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(0,204,97,.12)"><span style="width:28px;height:28px;border-radius:50%;background:#000000;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:500">MA</span><span style="font-size:15px"><b>Mar</b>ta Alves</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 16px"><span style="width:28px;height:28px;border-radius:50%;background:#00753a;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:500">MK</span><span style="font-size:15px;color:#4a4a4a"><b>Mar</b>cus Klein</span></div>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">v-autocomplete · open, query "mar"</div></div>
+    <div><div style="position:relative;border:1px solid #a3a3a3;border-radius:4px;min-height:56px;padding:10px 16px;box-sizing:border-box;display:flex;align-items:center;gap:6px;flex-wrap:wrap"><div style="position:absolute;top:-8px;left:12px;background:#ffffff;padding:0 4px;font-size:12px;color:#4a4a4a">Tags</div><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 4px 0 10px;border-radius:999px;background:rgba(0,204,97,.16);color:#00753a;font-size:13px;font-weight:500">design<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 4px 0 10px;border-radius:999px;background:rgba(0,204,97,.16);color:#00753a;font-size:13px;font-weight:500">vue<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span style="font-size:15px;color:#6f6f6f">Add…</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">v-combobox multiple chips closable-chips</div></div>
+    <div><div style="position:relative;border:1px solid #a3a3a3;border-radius:4px;height:56px;padding:0 16px;box-sizing:border-box;display:flex;align-items:center;gap:12px"><div style="position:absolute;top:-8px;left:12px;background:#ffffff;padding:0 4px;font-size:12px;color:#4a4a4a">Attachment</div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 16V5M8 8l4-4 4 4" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19h14" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round"/></svg><div style="font-size:15px;color:#0d0d0d">spec-v2.pdf <span style="color:#6f6f6f;font-size:13px">(1.2 MB)</span></div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">v-file-input show-size</div></div>
+  </div>
+</section>
+
+<section id="selection" data-screen-label="06 Selection controls" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">06 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Selection controls &amp; slider</h2>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 28px">All take <span style="font-family:'Roboto Mono',monospace;font-size:12px">color="secondary"</span> when active (system default). Minimum 44px touch targets.</p>
+  <div style="display:flex;gap:56px;flex-wrap:wrap;align-items:flex-start">
+    <div>
+      <div style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-checkbox</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:18px;height:18px;border:2px solid #6f6f6f;border-radius:2px;flex:none"></span><span style="font-size:14px">Unchecked</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:22px;height:22px;background:#00cc61;border-radius:2px;flex:none;display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#002812" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span style="font-size:14px">Checked</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:22px;height:22px;background:#00cc61;border-radius:2px;flex:none;display:inline-flex;align-items:center;justify-content:center"><span style="width:11px;height:3px;background:#002812;border-radius:2px"></span></span><span style="font-size:14px">Indeterminate</span></div>
+        <div style="display:flex;align-items:center;gap:12px;opacity:.38"><span style="width:22px;height:22px;background:#6f6f6f;border-radius:2px;flex:none;display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span style="font-size:14px">Disabled</span></div>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:14px">color="secondary"<br>:indeterminate · :disabled</div>
+    </div>
+    <div>
+      <div style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-radio-group</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:20px;height:20px;border:2px solid #009449;border-radius:50%;flex:none;display:inline-flex;align-items:center;justify-content:center"><span style="width:10px;height:10px;background:#00b356;border-radius:50%"></span></span><span style="font-size:14px">Selected</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:20px;height:20px;border:2px solid #6f6f6f;border-radius:50%;flex:none"></span><span style="font-size:14px">Unselected</span></div>
+        <div style="display:flex;align-items:center;gap:12px;opacity:.38"><span style="width:20px;height:20px;border:2px solid #6f6f6f;border-radius:50%;flex:none"></span><span style="font-size:14px">Disabled</span></div>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:14px">&lt;v-radio value="…"&gt; ×n<br>color="secondary"</div>
+    </div>
+    <div>
+      <div style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-switch</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:52px;height:32px;background:#00cc61;border-radius:999px;flex:none;position:relative"><span style="position:absolute;top:4px;right:4px;width:24px;height:24px;background:#ffffff;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.3);display:inline-flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#00753a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span style="font-size:14px">On</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:52px;height:32px;background:#e7e7e7;border:2px solid #a3a3a3;border-radius:999px;flex:none;position:relative;box-sizing:border-box"><span style="position:absolute;top:5px;left:5px;width:18px;height:18px;background:#6f6f6f;border-radius:50%"></span></span><span style="font-size:14px">Off</span></div>
+        <div style="display:flex;align-items:center;gap:12px;opacity:.38"><span style="width:52px;height:32px;background:#e7e7e7;border:2px solid #a3a3a3;border-radius:999px;flex:none;position:relative;box-sizing:border-box"><span style="position:absolute;top:5px;left:5px;width:18px;height:18px;background:#6f6f6f;border-radius:50%"></span></span><span style="font-size:14px">Disabled</span></div>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:14px">color="secondary" inset<br>MD3 track 52×32</div>
+    </div>
+    <div style="flex:1;min-width:300px">
+      <div style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-slider</div>
+      <div style="max-width:420px">
+        <div style="display:flex;align-items:center;gap:0;position:relative;height:32px">
+          <span style="position:absolute;left:58%;top:-26px;transform:translateX(-50%);background:#00cc61;color:#002812;font-size:12px;font-weight:500;border-radius:6px;padding:3px 8px">58</span>
+          <span style="height:6px;background:#00cc61;border-radius:999px 0 0 999px;width:58%"></span>
+          <span style="width:20px;height:20px;background:#00cc61;border-radius:50%;flex:none;box-shadow:0 1px 2px rgba(0,0,0,.3);margin:0 -2px"></span>
+          <span style="height:6px;background:rgba(0,204,97,.3);border-radius:0 999px 999px 0;flex:1"></span>
+        </div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin:10px 0 22px">color="secondary" thumb-label</div>
+        <div style="display:flex;align-items:center;height:32px;opacity:.38">
+          <span style="height:6px;background:#6f6f6f;border-radius:999px 0 0 999px;width:30%"></span>
+          <span style="width:20px;height:20px;background:#6f6f6f;border-radius:50%;flex:none;margin:0 -2px"></span>
+          <span style="height:6px;background:#c9c9c9;border-radius:0 999px 999px 0;flex:1"></span>
+        </div>
+        <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">:disabled="true"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="surfaces" data-screen-label="07 Cards Chips Alerts" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">07 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Cards · Chips · Alerts · Banners · Avatars · Badges · Lists</h2>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 28px">System default: <span style="font-family:'Roboto Mono',monospace;font-size:12px">v-card variant="elevated" :elevation="1" rounded="lg"</span>.</p>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-card variants</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:24px;margin:0 0 30px">
+    <div><div style="background:#ffffff;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.3),0 1px 3px 1px rgba(0,0,0,.15);overflow:hidden">
+      <div style="height:110px;background:repeating-linear-gradient(45deg,#e7fbf1,#e7fbf1 10px,#d5f5e6 10px,#d5f5e6 20px);display:flex;align-items:center;justify-content:center"><span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#00753a">cover image 16:9</span></div>
+      <div style="padding:14px 16px 6px;font-size:17px;font-weight:500">Rollout Q3</div>
+      <div style="padding:0 16px;font-size:13px;color:#6f6f6f">Updated 2h ago</div>
+      <div style="padding:8px 16px 4px;font-size:13.5px;line-height:1.55;color:#4a4a4a">EU-West migration is 80% complete; API v2 flags enabled for beta tenants.</div>
+      <div style="display:flex;gap:4px;padding:8px 8px 10px"><span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:4px;color:#00753a;font:500 13px/1 Roboto,sans-serif">Share</span><span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:4px;color:#00753a;font:500 13px/1 Roboto,sans-serif">Open</span></div>
+    </div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="elevated" · v-img + title + subtitle + text + actions</div></div>
+    <div><div style="background:#f6f6f6;border-radius:8px;padding:16px"><div style="font-size:17px;font-weight:500;margin:0 0 6px">Flat card</div><div style="font-size:13.5px;line-height:1.55;color:#4a4a4a">No shadow — sits flush on the background surface.</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="flat" color="surface-light"</div></div>
+    <div><div style="background:rgba(0,204,97,.14);border-radius:8px;padding:16px"><div style="font-size:17px;font-weight:500;margin:0 0 6px;color:#00532a">Tonal card</div><div style="font-size:13.5px;line-height:1.55;color:#00753a">Container tinted with the component color at low opacity.</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="tonal" color="secondary"</div></div>
+    <div><div style="background:#ffffff;border:1px solid #c9c9c9;border-radius:8px;padding:16px"><div style="font-size:17px;font-weight:500;margin:0 0 6px">Outlined card</div><div style="font-size:13.5px;line-height:1.55;color:#4a4a4a">Thin border, zero elevation — dense dashboards.</div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:8px">variant="outlined"</div></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-chip</h3>
+  <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end;margin:0 0 30px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;background:rgba(0,204,97,.16);color:#00753a;font-size:14px;font-weight:500">Default</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">color="secondary" (tonal)</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;background:#000000;color:#ffffff;font-size:14px;font-weight:500">Filled</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="flat" color="primary"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;border:1px solid #a3a3a3;color:#0d0d0d;font-size:14px">Outlined</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">variant="outlined"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 14px 0 10px;border-radius:999px;background:rgba(0,204,97,.16);color:#00753a;font-size:14px;font-weight:500"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Filter on</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">filter · selected</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 6px 0 4px;border-radius:999px;border:1px solid #c9c9c9;font-size:14px"><span style="width:24px;height:24px;border-radius:50%;background:#000000;color:#00cc61;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700">MA</span>Marta<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#c9c9c9"/><path d="M9 9l6 6M15 9l-6 6" stroke="#4a4a4a" stroke-width="1.8" stroke-linecap="round"/></svg></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">avatar + closable</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(0,0,0,.1);color:#0d0d0d;font-size:12px;font-weight:500">small</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="small"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;background:rgba(217,45,49,.14);color:#b3181c;font-size:14px;font-weight:500">Overdue</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">color="error"</span></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-alert — tonal is the v4 default variant</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 30px">
+    <div><div style="display:flex;gap:12px;background:rgba(13,128,64,.12);border-radius:8px;padding:14px 16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="10" fill="#0d8040"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div style="font-size:15px;font-weight:500;color:#065c2c">Deployment complete</div><div style="font-size:13.5px;line-height:1.5;color:#0d8040">All 14 services are healthy on v2.4.0.</div></div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:7px">type="success" · title + text</div></div>
+    <div><div style="display:flex;gap:12px;background:rgba(25,118,210,.12);border-radius:8px;padding:14px 16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="10" fill="#1976d2"/><path d="M12 10.5V17M12 7.2v.2" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg><div><div style="font-size:15px;font-weight:500;color:#0d4e91">Scheduled maintenance</div><div style="font-size:13.5px;line-height:1.5;color:#1565c0">Sunday 02:00–03:00 UTC. Read-only mode.</div></div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:7px">type="info"</div></div>
+    <div><div style="display:flex;gap:12px;align-items:flex-start;background:rgba(245,166,35,.15);border-radius:8px;padding:14px 16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:1px"><path d="M12 3L22 20H2L12 3z" fill="#f5a623"/><path d="M12 10v4.5M12 17.5v.2" stroke="#000000" stroke-width="2.2" stroke-linecap="round"/></svg><div style="flex:1"><div style="font-size:15px;font-weight:500;color:#5c3d00">Trial ends in 3 days</div><div style="font-size:13.5px;line-height:1.5;color:#7a5200">Add billing details to keep your workspaces.</div></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex:none"><path d="M6 6l12 12M18 6L6 18" stroke="#7a5200" stroke-width="2" stroke-linecap="round"/></svg></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:7px">type="warning" closable</div></div>
+    <div><div style="display:flex;gap:12px;background:#d92d31;border-radius:8px;padding:14px 16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="10" fill="#ffffff"/><path d="M12 7.5v5.5M12 16.5v.2" stroke="#d92d31" stroke-width="2.2" stroke-linecap="round"/></svg><div><div style="font-size:15px;font-weight:500;color:#ffffff">Payment failed</div><div style="font-size:13.5px;line-height:1.5;color:#ffd9d9">Card ending 4242 was declined. Retry or update the card.</div></div></div><div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:7px">type="error" variant="flat" — prominent use only</div></div>
+  </div>
+  <div style="margin:0 0 30px"><div style="display:flex;gap:12px;background:#ffffff;border:1px solid #c9c9c9;border-left:none;border-radius:8px;padding:14px 16px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;width:6px;background:#0d8040"></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin:1px 0 0 8px"><circle cx="12" cy="12" r="10" fill="#0d8040"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="font-size:13.5px;line-height:1.5;color:#4a4a4a;padding-top:2px">Border variant — <span style="font-family:'Roboto Mono',monospace;font-size:12px">border="start" border-color="success" variant="outlined"</span></div></div></div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-banner</h3>
+  <div style="border:1px solid #e4e4e2;border-radius:8px;overflow:hidden;margin:0 0 30px">
+    <div style="display:flex;gap:16px;align-items:center;padding:14px 16px;border-bottom:1px solid #efefee">
+      <span style="width:40px;height:40px;border-radius:50%;background:rgba(0,204,97,.16);display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v10M12 13l-4-4M12 13l4-4" stroke="#00753a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#00753a" stroke-width="2" stroke-linecap="round"/></svg></span>
+      <div style="flex:1;font-size:14px;line-height:1.5;color:#1a1a1a">A new version of the desktop app is available.</div>
+      <div style="display:flex;gap:4px"><span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:4px;color:#00753a;font:500 13px/1 Roboto,sans-serif">Later</span><span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:4px;color:#00753a;font:500 13px/1 Roboto,sans-serif">Update</span></div>
+    </div>
+    <div style="padding:8px 16px;background:#fafaf9;font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">v-banner lines="one" icon="mdi-download" · &lt;template #actions&gt; two v-btn variant="text" color="secondary"</div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-avatar · v-badge</h3>
+  <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-end;margin:0 0 30px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="width:24px;height:24px;border-radius:50%;background:#000000;color:#00cc61;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700">A</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="24"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="width:40px;height:40px;border-radius:50%;background:#000000;color:#00cc61;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">MA</span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">default 40 · initials</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="width:56px;height:56px;border-radius:50%;background:repeating-linear-gradient(45deg,#e7e7e7,#e7e7e7 6px,#dcdcda 6px,#dcdcda 12px);display:inline-flex;align-items:center;justify-content:center"><span style="font-family:'Roboto Mono',monospace;font-size:8.5px;color:#6f6f6f">photo</span></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="56" · image</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="width:40px;height:40px;border-radius:50%;background:rgba(0,204,97,.16);display:inline-flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#00753a" stroke-width="2"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" stroke="#00753a" stroke-width="2" stroke-linecap="round"/></svg></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">icon avatar</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="position:relative;display:inline-block"><span style="width:40px;height:40px;border-radius:50%;background:#000000;color:#00cc61;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">MA</span><span style="position:absolute;top:-2px;right:-2px;width:12px;height:12px;border-radius:50%;background:#00cc61;border:2px solid #ffffff"></span></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">v-badge dot color="secondary"</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span style="position:relative;display:inline-block"><span style="width:40px;height:40px;border-radius:8px;background:rgba(0,0,0,.08);display:inline-flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 21a2 2 0 0 0 4 0" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg></span><span style="position:absolute;top:-7px;right:-9px;min-width:20px;height:20px;border-radius:999px;background:#d92d31;color:#ffffff;font-size:11px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #ffffff;box-sizing:border-box">3</span></span><span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">content="3" color="error"</span></div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-list — two-line, nav density</h3>
+  <div style="max-width:420px;border:1px solid #e4e4e2;border-radius:10px;overflow:hidden">
+    <div style="padding:12px 16px 6px;font-size:12px;font-weight:500;color:#6f6f6f;letter-spacing:.6px">WORKSPACES</div>
+    <div style="display:flex;align-items:center;gap:14px;padding:9px 12px;margin:0 8px;border-radius:8px;background:rgba(0,204,97,.14)">
+      <span style="width:36px;height:36px;border-radius:50%;background:#000000;color:#00cc61;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none">AC</span>
+      <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;color:#00532a">Acme Production</div><div style="font-size:12.5px;color:#00753a">14 services · eu-west</div></div>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#00753a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:9px 12px;margin:2px 8px;border-radius:8px">
+      <span style="width:36px;height:36px;border-radius:50%;background:#e7e7e7;color:#4a4a4a;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none">ST</span>
+      <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500">Staging</div><div style="font-size:12.5px;color:#6f6f6f">6 services · us-east</div></div>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:9px 12px;margin:2px 8px 8px;border-radius:8px;opacity:.45">
+      <span style="width:36px;height:36px;border-radius:50%;background:#e7e7e7;color:#4a4a4a;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none">AR</span>
+      <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500">Archive</div><div style="font-size:12.5px;color:#6f6f6f">read-only</div></div>
+    </div>
+    <div style="padding:8px 16px;background:#fafaf9;border-top:1px solid #efefee;font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">lines="two" · v-list-item active-color="secondary" rounded · states: active / default / disabled</div>
+  </div>
+</section>
+
+<section id="navigation" data-screen-label="08 Navigation" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">08 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 28px">Navigation</h2>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-app-bar + v-navigation-drawer</h3>
+  <div style="border:1px solid #e4e4e2;border-radius:10px;overflow:hidden;margin:0 0 10px">
+    <div style="display:flex;align-items:center;gap:16px;background:#000000;color:#ffffff;height:64px;padding:0 16px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="width:26px;height:26px;background:#00cc61;border-radius:6px"></span>
+      <span style="font-size:19px;font-weight:500;flex:1">Console</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="#ffffff" stroke-width="2"/><path d="M16 16l4.5 4.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="position:relative;display:inline-flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 21a2 2 0 0 0 4 0" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg><span style="position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:50%;background:#00cc61"></span></span>
+      <span style="width:34px;height:34px;border-radius:50%;background:#00cc61;color:#002812;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">MA</span>
+    </div>
+    <div style="display:flex;min-height:280px">
+      <div style="width:256px;border-right:1px solid #efefee;background:#ffffff;padding:12px 8px;box-sizing:border-box">
+        <div style="display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:8px;background:rgba(0,204,97,.14);color:#00532a;font-size:14.5px;font-weight:500"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 11l8-7 8 7v8a2 2 0 0 1-2 2h-4v-6h-4v6H6a2 2 0 0 1-2-2v-8z" stroke="#00753a" stroke-width="2" stroke-linejoin="round"/></svg>Dashboard</div>
+        <div style="display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:8px;color:#1a1a1a;font-size:14.5px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="1.5" stroke="#4a4a4a" stroke-width="2"/><rect x="13" y="4" width="7" height="7" rx="1.5" stroke="#4a4a4a" stroke-width="2"/><rect x="4" y="13" width="7" height="7" rx="1.5" stroke="#4a4a4a" stroke-width="2"/><rect x="13" y="13" width="7" height="7" rx="1.5" stroke="#4a4a4a" stroke-width="2"/></svg>Services</div>
+        <div style="display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:8px;color:#1a1a1a;font-size:14.5px;justify-content:flex-start"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 19V5M10 19v-8M16 19v-4M22 19H2" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round"/></svg><span style="flex:1">Analytics</span><span style="display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:999px;background:rgba(0,204,97,.16);color:#00753a;font-size:11px;font-weight:700">NEW</span></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:8px;color:#1a1a1a;font-size:14.5px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#4a4a4a" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round"/></svg>Settings</div>
+      </div>
+      <div style="flex:1;background:#f6f6f6;display:flex;align-items:center;justify-content:center"><span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#a3a3a3">v-main content area</span></div>
+    </div>
+  </div>
+  <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin:0 0 30px">v-app-bar color="primary" · v-navigation-drawer width 256 · v-list nav density="compact" active item color="secondary"</div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-tabs</h3>
+  <div style="border-bottom:1px solid #e4e4e2;display:flex;margin:0 0 10px;max-width:560px">
+    <div style="padding:14px 20px 11px;font-size:14px;font-weight:500;color:#00532a;border-bottom:3px solid #00cc61;display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 11l8-7 8 7v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Overview</div>
+    <div style="padding:14px 20px 14px;font-size:14px;font-weight:500;color:#6f6f6f">Activity</div>
+    <div style="padding:14px 20px 14px;font-size:14px;font-weight:500;color:#6f6f6f">Members</div>
+    <div style="padding:14px 20px 14px;font-size:14px;font-weight:500;color:rgba(0,0,0,.3)">Billing</div>
+  </div>
+  <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin:0 0 30px">v-tabs color="secondary" slider-color="secondary" · states: active / idle / idle / disabled · prepend-icon on active tab</div>
+
+  <div style="display:flex;gap:56px;flex-wrap:wrap;margin:0 0 30px">
+    <div>
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-breadcrumbs</h3>
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px"><a href="#navigation">Console</a><span style="color:#a3a3a3">/</span><a href="#navigation">Services</a><span style="color:#a3a3a3">/</span><span style="color:#6f6f6f">checkout-api</span></div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">:items · divider="/" · last item disabled</div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-pagination</h3>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:rgba(0,0,0,.3)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#000000;color:#ffffff;font-size:14px;font-weight:500">1</span>
+        <span style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px">2</span>
+        <span style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px">3</span>
+        <span style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;color:#6f6f6f">…</span>
+        <span style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px">12</span>
+        <span style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#1a1a1a"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">:length="12" active-color="primary" rounded="circle"</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-stepper — horizontal</h3>
+  <div style="border:1px solid #e4e4e2;border-radius:10px;padding:22px 28px;max-width:760px">
+    <div style="display:flex;align-items:center;gap:0">
+      <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:50%;background:#00cc61;display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#002812" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span style="font-size:14px;font-weight:500;color:#00753a">Account</span></div>
+      <span style="flex:1;height:1.5px;background:#00cc61;margin:0 16px"></span>
+      <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:50%;background:#000000;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">2</span><span style="font-size:14px;font-weight:500">Workspace</span></div>
+      <span style="flex:1;height:1.5px;background:#dddddc;margin:0 16px"></span>
+      <div style="display:flex;align-items:center;gap:10px;opacity:.5"><span style="width:28px;height:28px;border-radius:50%;background:#e7e7e7;color:#4a4a4a;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">3</span><span style="font-size:14px">Invite team</span></div>
+    </div>
+  </div>
+  <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">v-stepper :items · complete (color secondary + mdi-check) / active (primary) / upcoming</div>
+</section>
+
+<section id="data" data-screen-label="09 Data table" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">09 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Data table — v-data-table</h2>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 24px"><span style="font-family:'Roboto Mono',monospace;font-size:12px">:headers :items show-select hover items-per-page</span> · sorted column shows arrow · selected rows tint secondary · footer via built-in pagination.</p>
+  <div style="border:1px solid #e4e4e2;border-radius:10px;overflow:hidden">
+    <div style="display:grid;grid-template-columns:52px 2fr 1.2fr 1fr 1fr 56px;align-items:center;background:#fafaf9;border-bottom:1px solid #e4e4e2;font-size:13px;font-weight:500;color:#4a4a4a;height:48px">
+      <span style="display:flex;justify-content:center"><span style="width:18px;height:18px;border:2px solid #6f6f6f;border-radius:2px"></span></span>
+      <span style="display:flex;align-items:center;gap:6px;color:#0d0d0d">Service<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 11l6-6 6 6" stroke="#00b356" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Region</span><span>Status</span><span style="text-align:right;padding-right:24px">p95 (ms)</span><span></span>
+    </div>
+    <div style="display:grid;grid-template-columns:52px 2fr 1.2fr 1fr 1fr 56px;align-items:center;height:52px;background:rgba(0,204,97,.08);border-bottom:1px solid #efefee;font-size:14px">
+      <span style="display:flex;justify-content:center"><span style="width:18px;height:18px;background:#00cc61;border-radius:2px;display:inline-flex;align-items:center;justify-content:center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#002812" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+      <span style="font-weight:500">checkout-api</span><span style="color:#4a4a4a">eu-west</span>
+      <span><span style="display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(13,128,64,.14);color:#0d8040;font-size:12px;font-weight:500">Healthy</span></span>
+      <span style="text-align:right;padding-right:24px;font-family:'Roboto Mono',monospace;font-size:13px">124</span>
+      <span style="display:flex;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="1.8" fill="#6f6f6f"/><circle cx="12" cy="12" r="1.8" fill="#6f6f6f"/><circle cx="12" cy="18" r="1.8" fill="#6f6f6f"/></svg></span>
+    </div>
+    <div style="display:grid;grid-template-columns:52px 2fr 1.2fr 1fr 1fr 56px;align-items:center;height:52px;border-bottom:1px solid #efefee;font-size:14px">
+      <span style="display:flex;justify-content:center"><span style="width:18px;height:18px;border:2px solid #6f6f6f;border-radius:2px"></span></span>
+      <span style="font-weight:500">billing-worker</span><span style="color:#4a4a4a">eu-west</span>
+      <span><span style="display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(245,166,35,.18);color:#7a5200;font-size:12px;font-weight:500">Degraded</span></span>
+      <span style="text-align:right;padding-right:24px;font-family:'Roboto Mono',monospace;font-size:13px">412</span>
+      <span style="display:flex;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="1.8" fill="#6f6f6f"/><circle cx="12" cy="12" r="1.8" fill="#6f6f6f"/><circle cx="12" cy="18" r="1.8" fill="#6f6f6f"/></svg></span>
+    </div>
+    <div style="display:grid;grid-template-columns:52px 2fr 1.2fr 1fr 1fr 56px;align-items:center;height:52px;background:#fafaf9;border-bottom:1px solid #efefee;font-size:14px">
+      <span style="display:flex;justify-content:center"><span style="width:18px;height:18px;border:2px solid #6f6f6f;border-radius:2px"></span></span>
+      <span style="font-weight:500">auth-service <span style="font-size:11px;color:#a3a3a3;font-weight:400">← hover row</span></span><span style="color:#4a4a4a">us-east</span>
+      <span><span style="display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(217,45,49,.14);color:#b3181c;font-size:12px;font-weight:500">Down</span></span>
+      <span style="text-align:right;padding-right:24px;font-family:'Roboto Mono',monospace;font-size:13px">—</span>
+      <span style="display:flex;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="1.8" fill="#6f6f6f"/><circle cx="12" cy="12" r="1.8" fill="#6f6f6f"/><circle cx="12" cy="18" r="1.8" fill="#6f6f6f"/></svg></span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:flex-end;gap:22px;height:52px;padding:0 16px;font-size:13px;color:#4a4a4a">
+      <span>Items per page: <b>10</b> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="vertical-align:-1px"><path d="M7 10l5 5 5-5" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>1–10 of 34</span>
+      <span style="display:inline-flex;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="opacity:.35"><path d="M15 6l-6 6 6 6" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+  </div>
+  <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">status chips: v-chip size="small" color="success|warning|error" · selection checkboxes color="secondary"</div>
+</section>
+
+<section id="overlays" data-screen-label="10 Overlays" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">10 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 28px">Overlays — dialog · bottom sheet · snackbar · tooltip · menu · expansion panels</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:0 0 30px">
+    <div>
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-dialog</h3>
+      <div style="background:#4a4a4a;border-radius:10px;padding:36px;display:flex;justify-content:center">
+        <div style="background:#ffffff;border-radius:8px;width:340px;box-shadow:0 4px 4px rgba(0,0,0,.3),0 8px 12px 6px rgba(0,0,0,.15)">
+          <div style="padding:18px 20px 8px;font-size:19px;font-weight:500">Delete workspace?</div>
+          <div style="padding:0 20px 16px;font-size:14px;line-height:1.55;color:#4a4a4a">“Staging” and its 6 services will be permanently removed. This cannot be undone.</div>
+          <div style="display:flex;justify-content:flex-end;gap:4px;padding:0 12px 12px">
+            <span style="display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:4px;color:#1a1a1a;font:500 14px/1 Roboto,sans-serif">Cancel</span>
+            <span style="display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:4px;background:#d92d31;color:#ffffff;font:500 14px/1 Roboto,sans-serif">Delete</span>
+          </div>
+        </div>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">max-width="340" persistent · scrim 32% black · confirm v-btn color="error" variant="flat"</div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-bottom-sheet</h3>
+      <div style="background:#4a4a4a;border-radius:10px;padding:36px 36px 0;display:flex;align-items:flex-end;justify-content:center;min-height:212px">
+        <div style="background:#ffffff;border-radius:14px 14px 0 0;width:340px;padding:10px 0 14px">
+          <div style="width:36px;height:4px;border-radius:999px;background:#c9c9c9;margin:0 auto 10px"></div>
+          <div style="display:flex;align-items:center;gap:14px;padding:11px 20px;font-size:14.5px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 20l3.5-.8L19 7.7a2 2 0 0 0-2.8-2.8L4.7 16.4 4 20z" stroke="#1a1a1a" stroke-width="1.8" stroke-linejoin="round"/></svg>Rename</div>
+          <div style="display:flex;align-items:center;gap:14px;padding:11px 20px;font-size:14.5px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="#1a1a1a" stroke-width="1.8"/><path d="M5 16H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1" stroke="#1a1a1a" stroke-width="1.8"/></svg>Duplicate</div>
+          <div style="display:flex;align-items:center;gap:14px;padding:11px 20px;font-size:14.5px;color:#b3181c"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13" stroke="#b3181c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Delete</div>
+        </div>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">v-bottom-sheet + v-list · mobile action sheet pattern</div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;margin:0 0 30px">
+    <div style="flex:1;min-width:320px">
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-snackbar</h3>
+      <div style="display:inline-flex;align-items:center;gap:18px;background:#2b2b2b;color:#f6f6f6;border-radius:4px;padding:6px 8px 6px 16px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);font-size:14px">Workspace archived<span style="display:inline-flex;align-items:center;height:32px;padding:0 10px;border-radius:4px;color:#00cc61;font-weight:500">Undo</span></div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">timeout="4000" · bg surface-variant · action v-btn variant="text" color="secondary"</div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-tooltip</h3>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:7px">
+        <span style="background:#2b2b2b;color:#e7e7e7;font-size:12px;border-radius:4px;padding:5px 10px">Copy link</span>
+        <span style="width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.08);display:inline-flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M10 14a4 4 0 0 0 6 0l3-3a4 4 0 0 0-6-6l-1.5 1.5M14 10a4 4 0 0 0-6 0l-3 3a4 4 0 0 0 6 6l1.5-1.5" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">location="top" · text="Copy link"</div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-menu</h3>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+        <span style="display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:4px;border:1px solid #0d0d0d;font:500 14px/1 Roboto,sans-serif">Actions<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div style="background:#ffffff;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.3),0 2px 6px 2px rgba(0,0,0,.15);min-width:180px;padding:8px 0">
+          <div style="padding:9px 16px;font-size:14px;background:rgba(0,0,0,.05)">Export CSV <span style="font-size:11px;color:#a3a3a3">← hover</span></div>
+          <div style="padding:9px 16px;font-size:14px">Print report</div>
+          <div style="height:1px;background:#efefee;margin:7px 0"></div>
+          <div style="padding:9px 16px;font-size:14px;color:#b3181c">Delete</div>
+        </div>
+      </div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">activator v-btn variant="outlined" append-icon · v-list density="compact"</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:500;margin:0 0 14px;color:#6f6f6f">v-expansion-panels</h3>
+  <div style="max-width:640px;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.3),0 1px 3px 1px rgba(0,0,0,.15);overflow:hidden">
+    <div style="background:#ffffff">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;font-size:15px;font-weight:500">How is usage billed?<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 14l5-5 5 5" stroke="#00753a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div style="padding:0 20px 18px;font-size:14px;line-height:1.6;color:#4a4a4a">Per active service, prorated hourly. Idle services under 1 GB are free.</div>
+    </div>
+    <div style="border-top:1px solid #efefee;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;font-size:15px;background:#ffffff">Can I self-host?<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="#6f6f6f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div style="border-top:1px solid #efefee;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;font-size:15px;background:#ffffff;opacity:.45">Legacy plans<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="#6f6f6f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin-top:10px">v-expansion-panels · panel states: expanded / collapsed / disabled · title + text props</div>
+</section>
+
+<section id="feedback" data-screen-label="11 Progress" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">11 · COMPONENTS</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 28px">Progress</h2>
+  <div style="display:flex;gap:64px;flex-wrap:wrap">
+    <div style="flex:1;min-width:320px;max-width:480px">
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 18px;color:#6f6f6f">v-progress-linear</h3>
+      <div style="height:6px;border-radius:999px;background:rgba(0,204,97,.25);overflow:hidden;margin:0 0 8px"><span style="display:block;height:100%;width:65%;background:#00cc61;border-radius:999px"></span></div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin:0 0 22px">:model-value="65" color="secondary" rounded</div>
+      <div style="height:6px;border-radius:999px;background:rgba(0,0,0,.15);overflow:hidden;margin:0 0 8px;position:relative"><span style="position:absolute;left:20%;width:35%;height:100%;background:#000000;border-radius:999px"></span></div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f;margin:0 0 22px">indeterminate color="primary" (frame shown)</div>
+      <div style="height:18px;border-radius:999px;background:rgba(0,204,97,.25);overflow:hidden;position:relative;margin:0 0 8px"><span style="display:block;height:100%;width:42%;background:#00cc61"></span><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#00532a">42%</span></div>
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">height="18" · &lt;template #default&gt; percentage label</div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:500;margin:0 0 18px;color:#6f6f6f">v-progress-circular</h3>
+      <div style="display:flex;gap:36px;align-items:flex-end">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+          <svg width="64" height="64" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(0,204,97,.25)" stroke-width="5"/><circle cx="24" cy="24" r="20" fill="none" stroke="#00cc61" stroke-width="5" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="37.7" transform="rotate(-90 24 24)"/><text x="24" y="28" text-anchor="middle" font-family="Roboto,sans-serif" font-size="11" font-weight="700" fill="#00532a">70</text></svg>
+          <span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">:model-value="70"<br>:size="64" :width="5"</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+          <svg width="40" height="40" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="#00cc61" stroke-width="5" stroke-linecap="round" stroke-dasharray="35 90.6" transform="rotate(40 24 24)"/></svg>
+          <span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">indeterminate<br>color="secondary"</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+          <svg width="28" height="28" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-dasharray="35 90.6" transform="rotate(160 24 24)"/></svg>
+          <span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:#6f6f6f">size="small"<br>color="primary"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="themes" data-screen-label="12 Light vs Dark" style="max-width:1280px;margin:0 auto 24px;background:#ffffff;border:1px solid #e4e4e2;border-radius:14px;padding:40px 48px">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00b356;margin:0 0 6px">12 · THEMES</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px">Light and dark, side by side</h2>
+  <p style="font-size:13.5px;color:#4a4a4a;line-height:1.6;margin:0 0 24px">Same screen, both themes. Dark mode layers <span style="font-family:'Roboto Mono',monospace;font-size:12px">#0d0d0d → #161616 → #1f1f1f</span> instead of pure black; primary buttons invert to white; green stays the accent in both.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <sc-for list="{{ themes }}" as="t" hint-placeholder-count="2">
+      <div style="border:1px solid #e4e4e2;border-radius:12px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:14px;background:{{ t.appbar }};color:{{ t.appbarText }};height:52px;padding:0 16px">
+          <span style="width:20px;height:20px;background:#00cc61;border-radius:5px"></span>
+          <span style="font-size:15px;font-weight:500;flex:1">Console</span>
+          <span style="width:28px;height:28px;border-radius:50%;background:#00cc61;color:#002812;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">MA</span>
+        </div>
+        <div style="background:{{ t.bg }};padding:18px;display:flex;flex-direction:column;gap:14px">
+          <div style="background:{{ t.surface }};border-radius:8px;padding:16px;box-shadow:{{ t.shadow }};border:{{ t.cardBorder }}">
+            <div style="font-size:15px;font-weight:500;color:{{ t.text }};margin:0 0 4px">Deployment velocity</div>
+            <div style="font-size:12.5px;color:{{ t.subtext }};margin:0 0 12px">Last 30 days · eu-west</div>
+            <div style="height:6px;border-radius:999px;background:rgba(0,204,97,.25);overflow:hidden;margin:0 0 14px"><span style="display:block;height:100%;width:72%;background:#00cc61;border-radius:999px"></span></div>
+            <div style="display:flex;gap:8px">
+              <span style="display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:4px;background:{{ t.btnBg }};color:{{ t.btnText }};font:500 13px/1 Roboto,sans-serif">Deploy</span>
+              <span style="display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:4px;border:1px solid #009449;color:{{ t.greenText }};font:500 13px/1 Roboto,sans-serif">History</span>
+            </div>
+          </div>
+          <div style="background:{{ t.fieldBg }};border:1px solid {{ t.fieldBorder }};border-radius:4px;height:48px;padding:0 14px;display:flex;align-items:center;position:relative;box-sizing:border-box">
+            <span style="position:absolute;top:-8px;left:11px;background:{{ t.bg }};padding:0 4px;font-size:11.5px;color:{{ t.subtext }}">Search</span>
+            <span style="font-size:14px;color:{{ t.subtext }}">Filter services…</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span style="display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:999px;background:rgba(0,204,97,.16);color:{{ t.greenText }};font-size:12.5px;font-weight:500">Healthy · 12</span>
+            <span style="display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:999px;background:{{ t.chipMuted }};color:{{ t.subtext }};font-size:12.5px;font-weight:500">Paused · 2</span>
+            <span style="flex:1"></span>
+            <span style="width:44px;height:26px;background:#00cc61;border-radius:999px;position:relative"><span style="position:absolute;top:3px;right:3px;width:20px;height:20px;background:#ffffff;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.3)"></span></span>
+          </div>
+        </div>
+        <div style="padding:9px 16px;background:{{ t.footBg }};border-top:1px solid {{ t.footBorder }};font-family:'Roboto Mono',monospace;font-size:10.5px;color:{{ t.subtext }}">{{ t.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="handoff" data-screen-label="13 Handoff" style="max-width:1280px;margin:0 auto 24px;background:#000000;border-radius:14px;padding:40px 48px;color:#e7e7e7">
+  <div style="font-family:'Roboto Mono',monospace;font-size:12px;color:#00cc61;margin:0 0 6px">13 · HANDOFF</div>
+  <h2 style="font-size:30px;font-weight:500;margin:0 0 8px;color:#ffffff">Ready-to-paste Vuetify config</h2>
+  <p style="font-size:13.5px;color:#a3a3a3;line-height:1.6;margin:0 0 24px;max-width:800px">Drop into <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#8fe9bd">src/plugins/vuetify.js</span>. Includes both themes, the tonal ramps as custom keys, and the component <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#8fe9bd">defaults</span> used throughout this reference.</p>
+  <pre style="background:#0d0d0d;border:1px solid #2b2b2b;border-radius:10px;padding:24px 28px;overflow-x:auto;font-family:'Roboto Mono',monospace;font-size:12.5px;line-height:1.7;color:#c9c9c9;margin:0 0 20px">{{ configCode }}</pre>
+  <h3 style="font-size:17px;font-weight:500;margin:0 0 8px;color:#ffffff">SCSS variables (optional)</h3>
+  <p style="font-size:13px;color:#a3a3a3;line-height:1.6;margin:0 0 12px;max-width:800px">Only needed to change shape/typography at the SASS level. Point vite-plugin-vuetify at this file via <span style="font-family:'Roboto Mono',monospace;font-size:11.5px;color:#8fe9bd">vuetify({ styles: { configFile: 'src/styles/settings.scss' } })</span>.</p>
+  <pre style="background:#0d0d0d;border:1px solid #2b2b2b;border-radius:10px;padding:24px 28px;overflow-x:auto;font-family:'Roboto Mono',monospace;font-size:12.5px;line-height:1.7;color:#c9c9c9;margin:0 0 20px">{{ scssCode }}</pre>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div style="border:1px solid #2b2b2b;border-radius:10px;padding:18px 22px">
+      <div style="font-size:14px;font-weight:500;color:#ffffff;margin:0 0 8px">Usage rules</div>
+      <ul style="margin:0;padding:0 0 0 18px;font-size:13px;line-height:1.8;color:#a3a3a3">
+        <li>Primary black = ink &amp; structure (app bar, filled buttons, pagination active).</li>
+        <li>Secondary green = every interactive/selected state: switches, checkboxes, sliders, tabs, focus rings, FAB, links.</li>
+        <li>Never green text smaller than 18px on white lighter than <span style="color:#8fe9bd;font-family:'Roboto Mono',monospace;font-size:11.5px">secondary-700 #009449</span> (4.5:1).</li>
+        <li>Dark mode: surfaces #0d0d0d/#161616/#1f1f1f, never pure black cards on pure black bg.</li>
+      </ul>
+    </div>
+    <div style="border:1px solid #2b2b2b;border-radius:10px;padding:18px 22px">
+      <div style="font-size:14px;font-weight:500;color:#ffffff;margin:0 0 8px">v4 rename cheat-sheet</div>
+      <ul style="margin:0;padding:0 0 0 18px;font-size:13px;line-height:1.8;color:#a3a3a3">
+        <li>Type classes: <span style="font-family:'Roboto Mono',monospace;font-size:11.5px;color:#8fe9bd">text-h1…</span> → <span style="font-family:'Roboto Mono',monospace;font-size:11.5px;color:#8fe9bd">text-display/headline/title/body/label-*</span></li>
+        <li>Elevation: 0–24 → 0–5 (MD3).</li>
+        <li>Breakpoints: md 840 · lg 1145 · xl 1545 · xxl 2138.</li>
+        <li>Buttons lowercase by default (no auto-uppercase).</li>
+        <li>Verify against the v4 migration guide when upgrading.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const P = ['#f6f6f6','#e7e7e7','#c9c9c9','#a3a3a3','#6f6f6f','#4a4a4a','#2b2b2b','#1a1a1a','#0d0d0d','#000000'];
+    const S = ['#e7fbf1','#c2f4dc','#8fe9bd','#57dd9c','#26d47f','#00cc61','#00b356','#009449','#00753a','#005c2e'];
+    const steps = ['50','100','200','300','400','500','600','700','800','900'];
+    const mk = (arr, key) => arr.map((hex, i) => ({s: steps[i], hex, key: key + '-' + steps[i]}));
+    return {
+      ramps: [
+        {name: 'Primary — neutral to black', note: 'base: primary-900 #000000 · neutral text/surface scale', steps: mk(P, 'primary')},
+        {name: 'Secondary — brand green', note: 'base: secondary-500 #00cc61 · interactive accent', steps: mk(S, 'secondary')},
+      ],
+      semantic: [
+        {name: 'Success', light: '#0d8040', onLight: '#ffffff', ratioLight: 'AA 5.0:1', dark: '#26d47f', ratioDark: 'AA 10.9:1', note: "key: success · darkened from suggested #1faa59 (3.0:1 fails AA on white)"},
+        {name: 'Info', light: '#1976d2', onLight: '#ffffff', ratioLight: 'AA 4.6:1', dark: '#64b5f6', ratioDark: 'AA 8.6:1', note: "key: info · darkened from suggested #2196f3 (3.1:1 fails AA on white)"},
+        {name: 'Warning', light: '#f5a623', onLight: '#000000', ratioLight: 'AA 10.4:1', dark: '#f5a623', ratioDark: 'AA 10.4:1', note: 'key: warning · as suggested; always pairs with black text'},
+        {name: 'Error', light: '#d92d31', onLight: '#ffffff', ratioLight: 'AA 4.8:1', dark: '#ff4d4f', ratioDark: 'AA 6.4:1', note: "key: error · darkened from suggested #ff4d4f (3.3:1 fails AA on white)"},
+      ],
+      roles: [
+        {key: 'background', light: '#ffffff', dark: '#0d0d0d', role: 'App canvas (v-app / v-main)'},
+        {key: 'on-background', light: '#0d0d0d', dark: '#f6f6f6', role: 'Text on canvas'},
+        {key: 'surface', light: '#ffffff', dark: '#161616', role: 'Cards, sheets, menus, dialogs'},
+        {key: 'on-surface', light: '#0d0d0d', dark: '#f6f6f6', role: 'Text on surfaces'},
+        {key: 'surface-bright', light: '#ffffff', dark: '#2b2b2b', role: 'Brightest surface (snackbar in dark)'},
+        {key: 'surface-light', light: '#f6f6f6', dark: '#1f1f1f', role: 'Subtle fills — filled inputs, hover washes'},
+        {key: 'surface-variant', light: '#2b2b2b', dark: '#c9c9c9', role: 'Inverse surface — tooltips (Vuetify convention)'},
+        {key: 'on-surface-variant', light: '#e7e7e7', dark: '#1a1a1a', role: 'Text on surface-variant'},
+        {key: 'primary', light: '#000000', dark: '#ffffff', role: 'Brand ink. Inverts to white in dark mode'},
+        {key: 'on-primary', light: '#ffffff', dark: '#0d0d0d', role: '21:1 both themes'},
+        {key: 'primary-darken-1', light: '#1a1a1a', dark: '#e7e7e7', role: 'Pressed/hover tone of primary'},
+        {key: 'secondary', light: '#00cc61', dark: '#00cc61', role: 'Interactive accent — FAB, switches, focus, links'},
+        {key: 'on-secondary', light: '#002812', dark: '#002812', role: 'Deep green ink · 7.5:1 on #00cc61'},
+        {key: 'secondary-darken-1', light: '#00b356', dark: '#00b356', role: 'Pressed/hover tone of secondary'},
+      ],
+      get typeScale() { return this._ts.map(t => ({...t, sample: parseInt(t.size) > 30 ? 'Velocity' : 'Velocity is a habit'})); },
+      _ts: [
+        {cls: 'text-display-large', legacy: 'text-h1', spec: '57px · w400 · lh 64 · ls −0.25', size: '57px', w: '400', lh: '64px', ls: '-0.25px'},
+        {cls: 'text-display-medium', legacy: 'text-h2', spec: '45px · w400 · lh 52', size: '45px', w: '400', lh: '52px', ls: '0'},
+        {cls: 'text-display-small', legacy: 'text-h3', spec: '36px · w400 · lh 44', size: '36px', w: '400', lh: '44px', ls: '0'},
+        {cls: 'text-headline-large', legacy: 'text-h4', spec: '32px · w400 · lh 40', size: '32px', w: '400', lh: '40px', ls: '0'},
+        {cls: 'text-headline-medium', legacy: '—', spec: '28px · w400 · lh 36', size: '28px', w: '400', lh: '36px', ls: '0'},
+        {cls: 'text-headline-small', legacy: 'text-h5', spec: '24px · w400 · lh 32', size: '24px', w: '400', lh: '32px', ls: '0'},
+        {cls: 'text-title-large', legacy: 'text-h6', spec: '22px · w400 · lh 28', size: '22px', w: '400', lh: '28px', ls: '0'},
+        {cls: 'text-title-medium', legacy: 'text-subtitle-1', spec: '16px · w500 · lh 24 · ls 0.15', size: '16px', w: '500', lh: '24px', ls: '0.15px'},
+        {cls: 'text-title-small', legacy: 'text-subtitle-2', spec: '14px · w500 · lh 20 · ls 0.1', size: '14px', w: '500', lh: '20px', ls: '0.1px'},
+        {cls: 'text-body-large', legacy: 'text-body-1', spec: '16px · w400 · lh 24 · ls 0.5', size: '16px', w: '400', lh: '24px', ls: '0.5px'},
+        {cls: 'text-body-medium', legacy: 'text-body-2', spec: '14px · w400 · lh 20 · ls 0.25', size: '14px', w: '400', lh: '20px', ls: '0.25px'},
+        {cls: 'text-body-small', legacy: 'text-caption', spec: '12px · w400 · lh 16 · ls 0.4', size: '12px', w: '400', lh: '16px', ls: '0.4px'},
+        {cls: 'text-label-large', legacy: 'text-button', spec: '14px · w500 · lh 20 · ls 0.1 · no uppercase', size: '14px', w: '500', lh: '20px', ls: '0.1px'},
+        {cls: 'text-label-medium', legacy: '—', spec: '12px · w500 · lh 16 · ls 0.5', size: '12px', w: '500', lh: '16px', ls: '0.5px'},
+        {cls: 'text-label-small', legacy: 'text-overline', spec: '11px · w500 · lh 16 · ls 0.5 · no uppercase', size: '11px', w: '500', lh: '16px', ls: '0.5px'},
+      ],
+      spacing: Array.from({length: 17}, (_, n) => ({n, px: n * 4})),
+      elevations: [
+        {n: 0, dp: 0, shadow: 'none'},
+        {n: 1, dp: 1, shadow: '0 1px 2px rgba(0,0,0,.3), 0 1px 3px 1px rgba(0,0,0,.15)'},
+        {n: 2, dp: 3, shadow: '0 1px 2px rgba(0,0,0,.3), 0 2px 6px 2px rgba(0,0,0,.15)'},
+        {n: 3, dp: 6, shadow: '0 1px 3px rgba(0,0,0,.3), 0 4px 8px 3px rgba(0,0,0,.15)'},
+        {n: 4, dp: 8, shadow: '0 2px 3px rgba(0,0,0,.3), 0 6px 10px 4px rgba(0,0,0,.15)'},
+        {n: 5, dp: 12, shadow: '0 4px 4px rgba(0,0,0,.3), 0 8px 12px 6px rgba(0,0,0,.15)'},
+      ],
+      radii: [
+        {cls: 'rounded-0', v: '0', css: '0'},
+        {cls: 'rounded-sm', v: '2px', css: '2px'},
+        {cls: 'rounded', v: '4px (root)', css: '4px'},
+        {cls: 'rounded-lg', v: '8px', css: '8px'},
+        {cls: 'rounded-xl', v: '24px', css: '24px'},
+        {cls: 'rounded-pill', v: '9999px', css: '9999px'},
+        {cls: 'rounded-circle', v: '50%', css: '50%'},
+      ],
+      breakpoints: [
+        {name: 'xs', range: '0 – 599px', device: 'Small phone'},
+        {name: 'sm', range: '600 – 839px', device: 'Large phone / small tablet'},
+        {name: 'md', range: '840 – 1144px', device: 'Tablet / small laptop'},
+        {name: 'lg', range: '1145 – 1544px', device: 'Laptop / desktop'},
+        {name: 'xl', range: '1545 – 2137px', device: 'Large desktop'},
+        {name: 'xxl', range: '≥ 2138px', device: '4K & ultra-wide'},
+      ],
+      themes: [
+        {label: 'theme: light', appbar: '#000000', appbarText: '#ffffff', bg: '#ffffff', surface: '#ffffff', shadow: '0 1px 2px rgba(0,0,0,.3), 0 1px 3px 1px rgba(0,0,0,.15)', cardBorder: '1px solid #efefee', text: '#0d0d0d', subtext: '#6f6f6f', btnBg: '#000000', btnText: '#ffffff', greenText: '#00753a', fieldBg: '#ffffff', fieldBorder: '#a3a3a3', chipMuted: 'rgba(0,0,0,.08)', footBg: '#fafaf9', footBorder: '#efefee'},
+        {label: 'theme: dark', appbar: '#161616', appbarText: '#f6f6f6', bg: '#0d0d0d', surface: '#161616', shadow: 'none', cardBorder: '1px solid #2b2b2b', text: '#f6f6f6', subtext: '#a3a3a3', btnBg: '#ffffff', btnText: '#0d0d0d', greenText: '#26d47f', fieldBg: '#1f1f1f', fieldBorder: '#4a4a4a', chipMuted: 'rgba(255,255,255,.1)', footBg: '#161616', footBorder: '#2b2b2b'},
+      ],
+      configCode: `// src/plugins/vuetify.js — Vuetify 4
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+
+const primaryRamp = {
+  'primary-50': '#f6f6f6', 'primary-100': '#e7e7e7', 'primary-200': '#c9c9c9',
+  'primary-300': '#a3a3a3', 'primary-400': '#6f6f6f', 'primary-500': '#4a4a4a',
+  'primary-600': '#2b2b2b', 'primary-700': '#1a1a1a', 'primary-800': '#0d0d0d',
+  'primary-900': '#000000',
+}
+const secondaryRamp = {
+  'secondary-50': '#e7fbf1', 'secondary-100': '#c2f4dc', 'secondary-200': '#8fe9bd',
+  'secondary-300': '#57dd9c', 'secondary-400': '#26d47f', 'secondary-500': '#00cc61',
+  'secondary-600': '#00b356', 'secondary-700': '#009449', 'secondary-800': '#00753a',
+  'secondary-900': '#005c2e',
+}
+
+export default createVuetify({
+  theme: {
+    defaultTheme: 'light',
+    themes: {
+      light: {
+        dark: false,
+        colors: {
+          background: '#ffffff',      'on-background': '#0d0d0d',
+          surface: '#ffffff',         'on-surface': '#0d0d0d',
+          'surface-bright': '#ffffff',
+          'surface-light': '#f6f6f6',
+          'surface-variant': '#2b2b2b', 'on-surface-variant': '#e7e7e7',
+          primary: '#000000',         'on-primary': '#ffffff',
+          'primary-darken-1': '#1a1a1a',
+          secondary: '#00cc61',       'on-secondary': '#002812',
+          'secondary-darken-1': '#00b356',
+          success: '#0d8040',         'on-success': '#ffffff',
+          info: '#1976d2',            'on-info': '#ffffff',
+          warning: '#f5a623',         'on-warning': '#000000',
+          error: '#d92d31',           'on-error': '#ffffff',
+          ...primaryRamp, ...secondaryRamp,
+        },
+      },
+      dark: {
+        dark: true,
+        colors: {
+          background: '#0d0d0d',      'on-background': '#f6f6f6',
+          surface: '#161616',         'on-surface': '#f6f6f6',
+          'surface-bright': '#2b2b2b',
+          'surface-light': '#1f1f1f',
+          'surface-variant': '#c9c9c9', 'on-surface-variant': '#1a1a1a',
+          primary: '#ffffff',         'on-primary': '#0d0d0d',
+          'primary-darken-1': '#e7e7e7',
+          secondary: '#00cc61',       'on-secondary': '#002812',
+          'secondary-darken-1': '#00b356',
+          success: '#26d47f',         'on-success': '#0d0d0d',
+          info: '#64b5f6',            'on-info': '#0d0d0d',
+          warning: '#f5a623',         'on-warning': '#0d0d0d',
+          error: '#ff4d4f',           'on-error': '#0d0d0d',
+          ...primaryRamp, ...secondaryRamp,
+        },
+      },
+    },
+  },
+  defaults: {
+    VBtn:            { variant: 'flat', color: 'primary' },
+    VFab:            { color: 'secondary' },
+    VTextField:      { variant: 'outlined', color: 'secondary', density: 'comfortable' },
+    VTextarea:       { variant: 'outlined', color: 'secondary', density: 'comfortable' },
+    VSelect:         { variant: 'outlined', color: 'secondary', density: 'comfortable' },
+    VAutocomplete:   { variant: 'outlined', color: 'secondary', density: 'comfortable' },
+    VCombobox:       { variant: 'outlined', color: 'secondary', density: 'comfortable' },
+    VFileInput:      { variant: 'outlined', color: 'secondary', density: 'comfortable' },
+    VCheckbox:       { color: 'secondary' },
+    VRadioGroup:     { color: 'secondary' },
+    VSwitch:         { color: 'secondary', inset: true },
+    VSlider:         { color: 'secondary' },
+    VCard:           { variant: 'elevated', elevation: 1, rounded: 'lg' },
+    VChip:           { color: 'secondary' },
+    VAlert:          { variant: 'tonal' },
+    VTabs:           { color: 'secondary', sliderColor: 'secondary' },
+    VList:           { color: 'secondary' },
+    VPagination:     { activeColor: 'primary', rounded: 'circle' },
+    VProgressLinear: { color: 'secondary', rounded: true },
+    VProgressCircular: { color: 'secondary' },
+    VAppBar:         { color: 'primary' },
+    VBadge:          { color: 'error' },
+    VSnackbar:       { timeout: 4000 },
+  },
+})`,
+      scssCode: `// src/styles/settings.scss
+@use 'vuetify/settings' with (
+  $border-radius-root: 4px,      // base shape token
+  $body-font-family: ('Roboto', sans-serif),
+
+  // Optional: full MD3 shape scale instead of Vuetify defaults
+  $rounded: (
+    0: 0, 'sm': 4px, null: 8px, 'lg': 12px, 'xl': 16px,
+    'xxl': 28px, 'pill': 9999px, 'circle': 50%,
+  ),
+);`,
+    };
+  }
+}
+</script>
+</body>
+</html>

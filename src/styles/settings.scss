@@ -1,0 +1,19 @@
+// src/styles/settings.scss — Vuetify SASS variable overrides
+// Compiled via vite-plugin-vuetify ({ styles: { configFile: '...' } }).
+// Transcribed from the reference (§13 Handoff · SCSS variables).
+@use 'vuetify/settings' with (
+  $border-radius-root: 4px,      // base shape token
+  $body-font-family: ('Roboto', sans-serif),
+
+  // Full MD3 shape scale instead of Vuetify defaults
+  $rounded: (
+    0: 0,
+    'sm': 4px,
+    null: 8px,
+    'lg': 12px,
+    'xl': 16px,
+    'xxl': 28px,
+    'pill': 9999px,
+    'circle': 50%,
+  )
+);

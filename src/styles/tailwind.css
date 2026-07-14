@@ -1,0 +1,17 @@
+/* Tailwind 4 — supplementary utility layer alongside Vuetify.
+ *
+ * Preflight (Tailwind's base reset) is intentionally NOT imported: Vuetify
+ * owns the base/reset styling, and Tailwind's reset would fight it. We import
+ * only the theme (tokens/variables) and utilities layers.
+ *
+ * Layer order note: Tailwind utilities live in @layer utilities, while
+ * Vuetify's utility classes are unlayered — so on the few overlapping names
+ * (e.g. rounded-lg) Vuetify wins, keeping the component styling intact.
+ */
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Scan the app source for class usage (Vite plugin also auto-detects). */
+@source '../**/*.{vue,js}';
