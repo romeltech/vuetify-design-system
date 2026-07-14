@@ -9,12 +9,28 @@ Built from the specification in [`reference/v1/`](reference/v1) — the single
 source of truth. The app renders **real Vuetify components** under the preset,
 so it doubles as visual verification that the preset matches the spec.
 
+## Technology stack
+
+Vue 3.5 · Vuetify 4.1 · Tailwind CSS 4 (supplementary) · vue-router 4 ·
+Vite 6 · `vite-plugin-vuetify` + `sass` · `@mdi/js` (SVG icons) ·
+self-hosted Roboto / Roboto Mono (`@fontsource`). JavaScript (no TypeScript),
+npm. Client-only SPA — no backend, database, or API.
+
+## Prerequisites
+
+- **Node.js ≥ 18** (developed on Node 24)
+- **npm** (a `package-lock.json` is committed)
+
+No environment variables or `.env` files are needed — the app runs with no
+configuration.
+
 ## Run
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # production build
+npm run dev       # dev server → http://localhost:5173
+npm run build     # production build → dist/
+npm run preview   # serve the built dist/ locally
 ```
 
 ## What's here
@@ -85,6 +101,28 @@ utilities are unlayered while Tailwind's sit in `@layer utilities`.
   sliders, tabs, focus rings, FAB, links).
 - Never green text smaller than 18px on white lighter than `secondary-700 #009449` (4.5:1).
 - Dark mode layers surfaces `#0d0d0d → #161616 → #1f1f1f` — never pure black on pure black.
+
+## Testing
+
+There is no committed automated test suite. `playwright` is installed and was
+used ad-hoc to screenshot-verify the guide in both themes (headless Chromium).
+To do a manual visual check: `npm run dev`, open the app, and toggle light/dark
+via the app-bar button. See `ai/issues/technical-debt.md` for the plan to add a
+committed Playwright smoke test.
+
+## Deployment
+
+The build output (`dist/`) is a fully static SPA and can be served by any static
+host (Netlify, Vercel, GitHub Pages, S3 + CloudFront, nginx). There is a single
+`/` route, so no SPA rewrite is strictly required. No CI/CD, Docker, or cloud
+infra is configured. Full details in `ai/deployment.md`.
+
+## Project documentation
+
+- **`AGENTS.md`** — AI/contributor development rules and the LIFT workflow.
+- **`ai/`** — the project knowledge base: `project-context.md`, `architecture.md`,
+  `coding-standards.md`, `deployment.md`, plus `features/`, `issues/`, and
+  `decisions/` (ADRs). Start there before making changes.
 
 ## Notes
 
