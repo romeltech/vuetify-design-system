@@ -1,23 +1,24 @@
 # Deployment & Operations
 
+This is an **npm workspaces monorepo** (see `ai/architecture.md`, ADR-002):
+`packages/vuetify-preset` (the published library) + `apps/playground` (the docs
+app that consumes it).
+
 ## Local development
 
-Prerequisites: **Node.js ≥ 18** (built and verified on Node 24) and **npm**.
+Prerequisites: **Node.js ≥ 18** (verified on Node 24) and **npm** (workspaces).
 
 ```bash
-npm install       # install dependencies
-npm run dev       # Vite dev server → http://localhost:5173
-npm run build     # production build → dist/
-npm run preview   # serve the built dist/ locally
+npm install       # installs all workspaces; links vuetify-preset into the playground
+npm run dev       # runs the playground dev server (→ http://localhost:5173)
+npm run build     # builds the playground → apps/playground/dist/
+npm run preview   # previews the built playground
 ```
 
-Scripts (from `package.json`):
-
-| Script | Command | Purpose |
-| --- | --- | --- |
-| `dev` | `vite` | Dev server with HMR (port 5173, set in `vite.config.js`) |
-| `build` | `vite build` | Production bundle to `dist/` |
-| `preview` | `vite preview` | Preview the production build |
+Root scripts proxy to the playground via `--workspace apps/playground`. The
+playground consumes `vuetify-preset` through the workspace symlink
+(`node_modules/vuetify-preset` → `packages/vuetify-preset`), so edits to the
+package are picked up immediately (HMR).
 
 ## Configuration & secrets
 
@@ -57,19 +58,33 @@ None configured. No pipelines committed.
 None (no logging, monitoring, or error-tracking integrations) — appropriate for a
 static reference app.
 
-## Reusing the preset in another project (the primary "deployment" of this repo)
+## Publishing `vuetify-preset` (npmjs, public)
 
-The portable artifact is three things: `src/plugins/vuetify.js`,
-`src/styles/settings.scss`, and the `@fontsource` imports. To adopt in a new
-Vuetify 4 app:
+The package (`packages/vuetify-preset`) is `publishConfig.access: public`, name
+`vuetify-preset`, MIT.
 
-1. Scaffold a Vuetify 4 app (`npm create vuetify@latest`, JavaScript).
-2. Copy `src/plugins/vuetify.js` and `src/styles/settings.scss`.
-3. Point the plugin at the settings file in `vite.config.js`:
-   `vuetify({ styles: { configFile: 'src/styles/settings.scss' } })`.
-4. In `main.js`, import in order: `vuetify/styles` → `./styles/tailwind.css`
-   (optional) → fonts → the vuetify plugin. **The `vuetify/styles` import is
-   required** (it pulls in the utility layer via the config file).
-5. Install icons/fonts: `@mdi/js`, `@fontsource/roboto`, `@fontsource/roboto-mono`.
+```bash
+cd packages/vuetify-preset
+npm pack --dry-run          # inspect: only src/, styles/, README.md, LICENSE, package.json
+npm login                   # needs an npmjs account (interactive — a human step)
+npm publish                 # first release 0.1.0 (public)
+cd ../.. && git tag v0.1.0  # then push the tag
+```
 
-See `README.md` for the full recipe.
+- **Versioning:** semver; bump `packages/vuetify-preset/package.json` `version`
+  per release. Consider `changesets` if releases become frequent.
+- **CI (optional):** a GitHub Actions workflow can `npm publish` on tag using an
+  `NPM_TOKEN` secret with `--provenance`. Not required for a manual first publish.
+- **Pre-publish check:** `npm pack` the tarball and `npm i` it in a throwaway
+  Vuetify 4 app to confirm `exports`/`files` resolve outside the workspace.
+
+## Consuming the package in another project
+
+```bash
+npm i vuetify-preset vuetify vue @mdi/js
+npm i @fontsource/roboto @fontsource/roboto-mono   # optional (fonts)
+```
+Then register `preset` in `createVuetify`, wire `settings.scss` via
+`require.resolve('vuetify-preset/settings.scss')` in `vite-plugin-vuetify`, and
+`import 'vuetify/styles'` first. Full recipe in the package README
+(`packages/vuetify-preset/README.md`).

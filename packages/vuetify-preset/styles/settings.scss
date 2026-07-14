@@ -1,0 +1,24 @@
+// vuetify-preset/settings.scss — Vuetify SASS variable overrides.
+//
+// Wire this into the CONSUMER build via vite-plugin-vuetify:
+//   vuetify({ styles: { configFile: '<resolved path to this file>' } })
+// (see the package README for pnpm-safe path resolution).
+//
+// `@forward` (rather than `@use`) so consumers can also `@use` these settings
+// elsewhere in their own SASS if needed.
+@forward 'vuetify/settings' with (
+  $border-radius-root: 4px,      // base shape token
+  $body-font-family: ('Roboto', sans-serif),
+
+  // Full MD3 shape scale instead of Vuetify defaults
+  $rounded: (
+    0: 0,
+    'sm': 4px,
+    null: 8px,
+    'lg': 12px,
+    'xl': 16px,
+    'xxl': 28px,
+    'pill': 9999px,
+    'circle': 50%,
+  )
+);

@@ -1,0 +1,29 @@
+{
+  "name": "@vuetify-preset/playground",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Living style guide for vuetify-preset — 13 sections rendering real Vuetify components under the preset.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^5.1.0",
+    "@fontsource/roboto-mono": "^5.1.0",
+    "@mdi/js": "^7.4.47",
+    "vue": "^3.5.0",
+    "vue-router": "^4.4.0",
+    "vuetify": "^4.1.0",
+    "vuetify-preset": "*"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-vue": "^5.2.0",
+    "sass": "^1.83.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.0",
+    "vite-plugin-vuetify": "^2.1.0"
+  }
+}

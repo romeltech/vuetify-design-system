@@ -56,10 +56,14 @@ published to npm; consumed by copy or clone.
 
 ## Repository shape
 
-**Single front-end SPA.** No backend, no database, no monorepo tooling. The
-`reference/` directory holds the original design spec (a static HTML mockup +
-its runtime) that this project was built from — it is the source of truth and is
-never modified.
+**npm workspaces monorepo** (see ADR-002): `packages/vuetify-preset` (the
+publishable library) + `apps/playground` (the front-end SPA style guide that
+consumes it). No backend or database. The `reference/` directory holds the
+original design spec (a static HTML mockup + its runtime) that the system was
+built from — it is the source of truth and is never modified.
+
+The published artifact is the **`vuetify-preset`** npm package (unscoped, public,
+MIT); the playground is private and unpublished.
 
 ## External integrations
 

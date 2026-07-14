@@ -1,6 +1,6 @@
 <script setup>
 import DsSection from '@/components/DsSection.vue'
-import { spacing, elevations, radii, breakpoints } from '@/data/tokens.js'
+import { spacing, elevations, radii, breakpoints } from 'vuetify-preset'
 </script>
 
 <template>

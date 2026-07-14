@@ -1,0 +1,52 @@
+{
+  "name": "vuetify-preset",
+  "version": "0.1.0",
+  "description": "Vuetify 4 design-system preset: theme (light/dark), component defaults, MD3 tokens, SASS overrides, self-hosted fonts, and SVG icons. Pure-black primary, #00cc61 green accent.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Romel Tech",
+  "keywords": [
+    "vuetify",
+    "vuetify4",
+    "vuetify-preset",
+    "design-system",
+    "material-design-3",
+    "md3",
+    "theme",
+    "vue"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss",
+    "./src/fonts.js"
+  ],
+  "files": [
+    "src",
+    "styles",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./src/index.js",
+    "./tokens": "./src/tokens.js",
+    "./fonts": "./src/fonts.js",
+    "./settings.scss": "./styles/settings.scss",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0",
+    "vuetify": "^4.1.0",
+    "@fontsource/roboto": "^5.1.0",
+    "@fontsource/roboto-mono": "^5.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@fontsource/roboto": { "optional": true },
+    "@fontsource/roboto-mono": { "optional": true }
+  },
+  "dependencies": {
+    "@mdi/js": "^7.4.47"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

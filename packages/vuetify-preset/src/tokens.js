@@ -1,7 +1,7 @@
-// src/data/tokens.js — design-system data, extracted verbatim from the
-// reference's renderVals() (reference/v1/Vuetify 4 Design System.dc.html,
-// lines 698–776). The showcase sections iterate these, keeping the doc
-// data-driven exactly like the original mockup.
+// tokens.js — design-system data, extracted verbatim from the reference spec
+// (reference/v1/Vuetify 4 Design System.dc.html). Exposed for building
+// documentation, swatches, or programmatic use. These mirror the theme values
+// in theme.js and the framework's built-in scales.
 
 const P = ['#f6f6f6', '#e7e7e7', '#c9c9c9', '#a3a3a3', '#6f6f6f', '#4a4a4a', '#2b2b2b', '#1a1a1a', '#0d0d0d', '#000000']
 const S = ['#e7fbf1', '#c2f4dc', '#8fe9bd', '#57dd9c', '#26d47f', '#00cc61', '#00b356', '#009449', '#00753a', '#005c2e']
@@ -87,21 +87,4 @@ export const breakpoints = [
   { name: 'lg', range: '1145 – 1544px', device: 'Laptop / desktop' },
   { name: 'xl', range: '1545 – 2137px', device: 'Large desktop' },
   { name: 'xxl', range: '≥ 2138px', device: '4K & ultra-wide' },
-]
-
-// In-page navigation model (mirrors the reference <nav>).
-export const sections = [
-  { id: 'colors', label: '1 · Color' },
-  { id: 'typography', label: '2 · Typography' },
-  { id: 'layout', label: '3 · Spacing · Elevation · Shape · Breakpoints' },
-  { id: 'buttons', label: '4 · Buttons' },
-  { id: 'forms', label: '5 · Form inputs' },
-  { id: 'selection', label: '6 · Selection controls' },
-  { id: 'surfaces', label: '7 · Cards · Chips · Alerts' },
-  { id: 'navigation', label: '8 · Navigation' },
-  { id: 'data', label: '9 · Data table' },
-  { id: 'overlays', label: '10 · Overlays' },
-  { id: 'feedback', label: '11 · Progress' },
-  { id: 'themes', label: '12 · Light vs Dark' },
-  { id: 'handoff', label: '13 · Handoff config' },
 ]

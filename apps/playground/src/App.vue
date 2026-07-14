@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { mdiWeatherSunny, mdiWeatherNight } from '@mdi/js'
-import { sections } from '@/data/tokens.js'
+import { sections } from '@/data/sections.js'
 
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)

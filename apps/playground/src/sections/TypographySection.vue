@@ -1,6 +1,6 @@
 <script setup>
 import DsSection from '@/components/DsSection.vue'
-import { typeScale } from '@/data/tokens.js'
+import { typeScale } from 'vuetify-preset'
 </script>
 
 <template>

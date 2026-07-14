@@ -6,8 +6,14 @@ Brand: pure-black `primary` (ink & structure), green `#00cc61` `secondary`
 elevation, WCAG AA semantic colors.
 
 Built from the specification in [`reference/v1/`](reference/v1) — the single
-source of truth. The app renders **real Vuetify components** under the preset,
-so it doubles as visual verification that the preset matches the spec.
+source of truth. The playground renders **real Vuetify components** under the
+preset, so it doubles as visual verification that the preset matches the spec.
+
+This is an **npm workspaces monorepo**:
+
+- [`packages/vuetify-preset`](packages/vuetify-preset) — ★ the publishable
+  package (`vuetify-preset` on npm). See its [README](packages/vuetify-preset/README.md).
+- [`apps/playground`](apps/playground) — the living style guide that consumes it.
 
 ## Technology stack
 
@@ -37,36 +43,41 @@ npm run preview   # serve the built dist/ locally
 
 | Path | Purpose |
 | --- | --- |
-| `src/plugins/vuetify.js` | ★ **The preset** — theme (light/dark) + component defaults |
-| `src/styles/settings.scss` | ★ SASS overrides — `$border-radius-root`, fonts, MD3 `$rounded` map |
-| `src/styles/fonts.js` | Self-hosted Roboto + Roboto Mono (`@fontsource`, offline) |
-| `src/data/tokens.js` | Design tokens (ramps, semantic, roles, type scale, spacing, …) |
-| `src/sections/*.vue` | The 13 style-guide sections (§1 Color … §13 Handoff) |
+| `packages/vuetify-preset/src/theme.js` | ★ light/dark theme + tonal ramps |
+| `packages/vuetify-preset/src/defaults.js` | ★ component defaults |
+| `packages/vuetify-preset/src/icons.js` | mdi-svg icon config |
+| `packages/vuetify-preset/src/tokens.js` | design tokens (ramps, semantic, roles, type scale, …) |
+| `packages/vuetify-preset/styles/settings.scss` | ★ SASS overrides (`$border-radius-root`, fonts, MD3 `$rounded`) |
+| `apps/playground/src/sections/*.vue` | the 13 style-guide sections (§1 Color … §13 Handoff) |
 
 ## Reusing this in a new project
 
-The portable design system is three things: **`src/plugins/vuetify.js`**,
-**`src/styles/settings.scss`**, and the **`@fontsource` imports**.
+Install the package — no more copy/paste:
 
-1. Scaffold a Vuetify 4 app (`npm create vuetify@latest`, JavaScript).
-2. Copy `src/plugins/vuetify.js` and `src/styles/settings.scss` over.
-3. In `vite.config.js`, point the plugin at the settings file:
-   ```js
-   vuetify({ styles: { configFile: 'src/styles/settings.scss' } })
-   ```
-4. In `main.js`, import in this order (the `vuetify/styles` import is
-   required — it's what pulls in the grid + `d-flex`/`ga`/`ma`/`pa`/`text-*`
-   utility layer, recompiled through `settings.scss`):
-   ```js
-   import 'vuetify/styles'
-   import './styles/tailwind.css'   // Tailwind utilities (preflight disabled)
-   import './styles/fonts.js'
-   import vuetify from './plugins/vuetify.js'
-   ```
+```bash
+npm i vuetify-preset vuetify vue @mdi/js
+npm i @fontsource/roboto @fontsource/roboto-mono   # optional (fonts)
+```
 
-That's it — components now inherit the theme and defaults (bare `<v-btn>` is
-flat black, `<v-switch>` is green, `<v-card>` is elevated + rounded-lg, inputs
-are outlined/green/comfortable, …).
+```js
+// vite.config.js
+import { createRequire } from 'node:module'
+import vuetify from 'vite-plugin-vuetify'
+const require = createRequire(import.meta.url)
+vuetify({ styles: { configFile: require.resolve('vuetify-preset/settings.scss') } })
+
+// main.js — the `vuetify/styles` import is required (utility layer)
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import { preset } from 'vuetify-preset'
+import 'vuetify-preset/fonts'         // optional self-hosted Roboto
+export default createVuetify(preset)
+```
+
+Components then inherit the theme and defaults (bare `<v-btn>` is flat black,
+`<v-switch>` green, `<v-card>` elevated + rounded-lg, inputs
+outlined/green/comfortable, …). Full recipe:
+[`packages/vuetify-preset/README.md`](packages/vuetify-preset/README.md).
 
 ### Icons — `@mdi/js` (SVG)
 
@@ -87,8 +98,8 @@ import { mdiPlus } from '@mdi/js'
 
 ### Tailwind 4
 
-Tailwind is set up as a **supplementary** utility layer via
-`@tailwindcss/vite` + `src/styles/tailwind.css`. Preflight (Tailwind's reset)
+Tailwind is set up as a **supplementary** utility layer (app-level) via
+`@tailwindcss/vite` + `apps/playground/src/styles/tailwind.css`. Preflight (Tailwind's reset)
 is disabled so it doesn't fight Vuetify's base styles, and there is **no
 prefix** — write standard Tailwind classes (`flex`, `p-4`, `gap-2`). On the few
 class names both frameworks define (e.g. `rounded-lg`), Vuetify wins because its
@@ -110,12 +121,21 @@ To do a manual visual check: `npm run dev`, open the app, and toggle light/dark
 via the app-bar button. See `ai/issues/technical-debt.md` for the plan to add a
 committed Playwright smoke test.
 
-## Deployment
+## Publishing the package
 
-The build output (`dist/`) is a fully static SPA and can be served by any static
-host (Netlify, Vercel, GitHub Pages, S3 + CloudFront, nginx). There is a single
-`/` route, so no SPA rewrite is strictly required. No CI/CD, Docker, or cloud
-infra is configured. Full details in `ai/deployment.md`.
+```bash
+cd packages/vuetify-preset
+npm pack --dry-run   # inspect tarball
+npm login            # your npmjs account (interactive)
+npm publish          # public, first release 0.1.0
+```
+
+## Deploying the playground
+
+The playground build (`apps/playground/dist/`) is a fully static SPA and can be
+served by any static host (Netlify, Vercel, GitHub Pages, S3 + CloudFront,
+nginx). Single `/` route, so no SPA rewrite is strictly required. No CI/CD,
+Docker, or cloud infra is configured. Full details in `ai/deployment.md`.
 
 ## Project documentation
 

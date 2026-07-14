@@ -2,49 +2,64 @@
 
 ## Style & shape
 
-A **client-only single-page application** (Vite + Vue 3 SPA). There is no
-server-side, backend, database, or API layer. Architecture is therefore
-front-end only, organized as **preset (portable) + showcase (documentation)**.
+An **npm workspaces monorepo** (see ADR-002) with two members:
+
+1. **`packages/vuetify-preset`** — the publishable library (plain-ESM JS +
+   raw SASS). No app, no runtime framework of its own; `vue`/`vuetify` are peers.
+2. **`apps/playground`** — a **client-only Vite + Vue 3 SPA** (the 13-section
+   style guide) that consumes `vuetify-preset` and renders real Vuetify
+   components, doubling as living verification.
+
+There is still no backend, database, or API anywhere.
 
 ```
-Browser
-  └─ Vite-built SPA
-       ├─ Vuetify plugin (theme + defaults)      ← the portable preset
-       ├─ Tailwind utility layer (supplementary)
-       ├─ vue-router (single Home route, hash anchors)
-       └─ 13 style-guide section components (real Vuetify components)
+apps/playground (Vite SPA)
+  └─ imports  vuetify-preset  (workspace-linked / published)
+       ├─ preset = { theme, defaults, icons }  → createVuetify(preset)
+       ├─ vuetify-preset/settings.scss         → vite-plugin-vuetify configFile
+       ├─ vuetify-preset/fonts                 → self-hosted Roboto (optional)
+       └─ tokens (ramps, semantic, …)          → the doc sections
+  + Tailwind 4 utility layer (app-level, supplementary)
 ```
 
 ## Directory map
 
 ```
-index.html                 # Vite entry; mounts #app
-vite.config.js             # vue + vite-plugin-vuetify + @tailwindcss/vite; '@' alias → src
-jsconfig.json              # editor path alias (@/*)
-src/
-  main.js                  # createApp → import styles → use(vuetify) → use(router) → mount
-  App.vue                  # v-app shell: app bar (brand + theme toggle) + sticky nav + <router-view>
-  plugins/
-    vuetify.js             # ★ PRESET: createVuetify(theme.light/dark + defaults + mdi-svg icons)
+package.json               # ROOT: private, workspaces:["packages/*","apps/*"], dev/build proxy to playground
+
+packages/vuetify-preset/   # ★ the published package
+  package.json             # name, exports, files, peerDeps, sideEffects, publishConfig
+  README.md · LICENSE      # npm page + MIT license
+  src/
+    index.js               # entry: preset, createPreset(), + named theme/defaults/icons/tokens
+    theme.js               # light/dark themes + primary/secondary ramps
+    defaults.js            # component defaults
+    icons.js               # mdi-svg iconset config (uses @mdi/js)
+    tokens.js              # design tokens (ramps, semantic, roles, typeScale, spacing, …)
+    fonts.js               # optional @fontsource side-effect import (subpath: vuetify-preset/fonts)
   styles/
-    settings.scss          # ★ SASS overrides: $border-radius-root, $body-font-family, MD3 $rounded map
-    tailwind.css           # Tailwind 4 theme+utilities layers (preflight disabled, no prefix)
-    fonts.js               # @fontsource imports (Roboto + Roboto Mono, self-hosted)
-    app.scss               # showcase-only page chrome (canvas bg, mono captions, sticky nav)
-  data/
-    tokens.js              # design tokens (ramps, semantic, roles, typeScale, spacing, …) + section nav model
-  router/
-    index.js               # single '/' route → Home; scrollBehavior handles #hash anchors
-  views/
-    Home.vue               # composes all 13 section components in order
-  components/
-    DsSection.vue          # section wrapper (NN · GROUP label, h2, intro slot) — a v-card
-    SpecCaption.vue        # Roboto-Mono caption echoing the Vuetify props for a specimen
-  sections/                # one component per style-guide section (see below)
+    settings.scss          # ★ SASS overrides via @forward 'vuetify/settings' with (...)
+
+apps/playground/           # the living style guide (consumes vuetify-preset)
+  package.json             # private; deps include "vuetify-preset":"*"
+  index.html · vite.config.js · jsconfig.json
+  src/
+    main.js                # import 'vuetify/styles' → tailwind → fonts → createVuetify(preset)
+    App.vue                # v-app shell: app bar (brand + theme toggle) + sticky nav + <router-view>
+    styles/{app.scss, tailwind.css}   # app-only chrome + Tailwind (preflight off, no prefix)
+    data/sections.js       # in-page nav model (app-specific; tokens come from the package)
+    router/index.js        # single '/' route → Home
+    views/Home.vue         # composes all 13 section components
+    components/{DsSection.vue, SpecCaption.vue}
+    sections/              # one component per style-guide section (see below)
+
 reference/                 # ORIGINAL SPEC — source of truth, never modified
-  v1/Vuetify 4 Design System.dc.html   # static HTML mockup of the design system
-  v1/support.js                        # the mockup's React-based render runtime (not reused)
 ```
+
+> Migration note: `src/plugins/vuetify.js` was split into the package's
+> `theme.js`/`defaults.js`/`icons.js`; `src/data/tokens.js` → the package's
+> `tokens.js` (its `sections` nav model stayed in the app as `data/sections.js`);
+> `src/styles/{settings.scss,fonts.js}` → the package.
 
 ## The 13 sections
 
@@ -68,11 +83,12 @@ reference/                 # ORIGINAL SPEC — source of truth, never modified
 
 ## Key architectural decisions & non-obvious wiring
 
-1. **The preset is the product.** `src/plugins/vuetify.js` + `src/styles/settings.scss`
-   + the `@fontsource` imports are the portable artifact. Everything in
-   `sections/` exists to document and verify them.
+1. **The preset is the product.** The `packages/vuetify-preset` package (theme,
+   defaults, tokens, icons, `settings.scss`, optional fonts) is the shippable
+   artifact. `apps/playground` exists to document and verify it, consuming it via
+   the workspace link (`node_modules/vuetify-preset` → `packages/vuetify-preset`).
 
-2. **`import 'vuetify/styles'` is mandatory (in `main.js`).** `vite-plugin-vuetify`
+2. **`import 'vuetify/styles'` is mandatory (in the app's `main.js`).** `vite-plugin-vuetify`
    with `styles.configFile` recompiles that import through `settings.scss`,
    pulling in the reset + grid + all utility classes (`d-flex`, `ga/ma/pa`,
    `text-*`). Removing it silently drops the entire utility layer and layouts
@@ -89,8 +105,8 @@ reference/                 # ORIGINAL SPEC — source of truth, never modified
    as the original mockup.
 
 5. **Handoff section is self-describing.** `HandoffSection.vue` imports the real
-   `vuetify.js` and `settings.scss` via Vite `?raw`, so the documentation can
-   never drift from the actual preset.
+   shipped `vuetify-preset/settings.scss` via Vite `?raw` and shows the package
+   install/usage snippets, so the documentation can't drift from the package.
 
 6. **Tailwind is supplementary, not primary.** Preflight is disabled and there is
    no prefix; Tailwind utilities sit in `@layer utilities` while Vuetify's are

@@ -3,9 +3,16 @@
 Rules for AI assistants (and humans) working in this repository. Read this and
 the `/ai` knowledge base before making changes.
 
-Project in one line: a **Vue 3 + Vuetify 4 design-system preset + living style
-guide** (JavaScript, Vite, Tailwind 4 supplementary layer, `@mdi/js` SVG icons,
-self-hosted Roboto). No backend, database, API, or auth.
+Project in one line: an **npm workspaces monorepo** — `packages/vuetify-preset`
+(the publishable Vuetify 4 design-system package) + `apps/playground` (the living
+style guide that consumes it). JavaScript, Vite, Tailwind 4 supplementary layer
+(app-level), `@mdi/js` SVG icons, self-hosted Roboto. No backend, database, API,
+or auth.
+
+**Where things live:** design-system changes (theme, defaults, tokens, SASS,
+icons, fonts) go in `packages/vuetify-preset`. Showcase/demo changes go in
+`apps/playground`. The playground imports the package by name (`vuetify-preset`),
+never by relative path into `packages/`.
 
 ---
 
@@ -108,11 +115,26 @@ Keep docs **stack-accurate** — describe what the project really uses.
 
 ---
 
+## Package & release rules (`vuetify-preset`)
+
+- Any change to the published package's public surface (theme, defaults, tokens,
+  exports) → bump `packages/vuetify-preset/package.json` `version` (semver) and
+  update its `README.md`.
+- Keep the `exports` map and `files` allowlist in sync when adding files; verify
+  with `npm pack --dry-run` (tarball must contain only `src/`, `styles/`,
+  `README.md`, `LICENSE`).
+- `vue`/`vuetify` stay **peer** deps; `@fontsource/*` optional peers; `@mdi/js` a
+  dep. Don't add app-only tooling (Vite, Tailwind, Playwright) to the package.
+- Publishing is a human step (`npm login && npm publish`) — don't attempt it
+  non-interactively.
+
 ## Quick commands
 
 ```bash
-npm install
-npm run dev       # http://localhost:5173
+npm install       # root: installs all workspaces, links vuetify-preset
+npm run dev       # runs apps/playground → http://localhost:5173
 npm run build
 npm run preview
+# package:
+cd packages/vuetify-preset && npm pack --dry-run
 ```

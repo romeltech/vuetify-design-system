@@ -1,6 +1,6 @@
 <script setup>
 import DsSection from '@/components/DsSection.vue'
-import { ramps, semantic, roles } from '@/data/tokens.js'
+import { ramps, semantic, roles } from 'vuetify-preset'
 </script>
 
 <template>
