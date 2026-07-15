@@ -105,6 +105,65 @@ This package is Vuetify-only. If you also use Tailwind, add it in your app as a
 supplementary layer with preflight disabled so it doesn't fight Vuetify's base
 styles.
 
+## Laravel + Vue
+
+This package works in Laravel apps that build with Vite (register `preset` in
+`createVuetify`, wire `settings.scss` via
+`require.resolve('vuetify-preset/settings.scss')`). If you'd rather **not** add
+an npm dependency, the repo also ships a self-contained copy-paste folder
+(`laravel-kit/`) for both Inertia + Vue 3 and Vue SPA setups.
+
+## Nuxt 3 / 4
+
+Use the official [`vuetify-nuxt-module`](https://nuxt.vuetifyjs.com) — it handles
+SSR, treeshaking, and compiling the SASS `configFile`. Verified with Nuxt 3.21,
+Vuetify 4.1, and `vuetify-nuxt-module` 1.0.0-rc.
+
+```bash
+npm i vuetify-preset vuetify @mdi/js @fontsource/roboto @fontsource/roboto-mono
+npm i -D vuetify-nuxt-module sass
+```
+
+```ts
+// nuxt.config.ts
+import { theme, defaults } from 'vuetify-preset'   // plain data — safe at config time
+
+export default defineNuxtConfig({
+  modules: ['vuetify-nuxt-module'],
+  features: { inlineStyles: false },                // required for SSR + custom settings.scss
+  vuetify: {
+    moduleOptions: {
+      styles: { configFile: 'node_modules/vuetify-preset/styles/settings.scss' },
+    },
+    vuetifyOptions: {
+      theme,
+      defaults,
+      icons: { defaultSet: 'mdi-svg' },             // module wires @mdi/js aliases
+    },
+  },
+})
+```
+
+```ts
+// plugins/fonts.ts — optional self-hosted Roboto
+import 'vuetify-preset/fonts'
+export default defineNuxtPlugin(() => {})
+```
+
+Then use components normally (`import { mdiPlus } from '@mdi/js'` →
+`<v-btn :icon="mdiPlus" />`) and tokens via `import { ramps } from 'vuetify-preset'`.
+
+**SSR notes**
+- `features: { inlineStyles: false }` is required when customizing SASS via
+  `configFile` under SSR (Nuxt 3.9+).
+- Nuxt renders `defaultTheme` (light) on the server; a light/dark **toggle**
+  (`useTheme()`) switches on the client after hydration — expected with SSR.
+- pnpm/yarn: if the `configFile` path doesn't resolve under symlinked
+  `node_modules`, point it at the resolved absolute path.
+
+> The 13-section showcase is **not** part of this package (it's the repo's demo).
+> To render it in Nuxt, copy `laravel-kit/vuetify-preset/showcase/` into your app.
+
 ## License
 
 MIT © Romel Tech

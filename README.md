@@ -14,6 +14,9 @@ This is an **npm workspaces monorepo**:
 - [`packages/vuetify-preset`](packages/vuetify-preset) — ★ the publishable
   package (`vuetify-preset` on npm). See its [README](packages/vuetify-preset/README.md).
 - [`apps/playground`](apps/playground) — the living style guide that consumes it.
+- [`laravel-kit`](laravel-kit) — a **self-contained, copy-paste folder** for
+  Laravel + Vue apps (Inertia or SPA) that needs no npm install. See its
+  [README](laravel-kit/README.md).
 
 ## Technology stack
 
@@ -51,6 +54,12 @@ npm run preview   # serve the built dist/ locally
 | `apps/playground/src/sections/*.vue` | the 13 style-guide sections (§1 Color … §13 Handoff) |
 
 ## Reusing this in a new project
+
+Works in **Vue 3 SPA**, **Laravel + Vue** (Vite/Inertia or SPA — via the package
+or the copy-paste [`laravel-kit`](laravel-kit)), and **Nuxt 3/4** (via
+`vuetify-nuxt-module` — see the
+[package README](packages/vuetify-preset/README.md#nuxt-3--4)). All three are
+verified.
 
 Install the package — no more copy/paste:
 

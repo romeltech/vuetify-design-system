@@ -1,0 +1,46 @@
+// src/styles/app.scss — showcase-only page chrome (NOT part of the portable preset).
+// Styles the design-system documentation page itself.
+
+.ds-app {
+  --ds-canvas: #f2f2f0;
+}
+.v-theme--dark .ds-app,
+.ds-app.is-dark {
+  --ds-canvas: #0a0a0a;
+}
+
+// Roboto Mono utility for spec captions / token labels.
+.ds-mono {
+  font-family: 'Roboto Mono', monospace;
+}
+
+// Section card used to wrap each documentation section.
+.ds-section {
+  scroll-margin-top: 88px; // offset for the sticky app bar when anchor-jumping
+}
+
+// Small inline code token (e.g. prop names in prose).
+.ds-code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.82em;
+  background: rgba(127, 127, 127, 0.14);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+// Sticky in-page nav chip row.
+.ds-nav {
+  position: sticky;
+  top: 64px;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+}
+
+// Preformatted code block (handoff section).
+.ds-pre {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+}
